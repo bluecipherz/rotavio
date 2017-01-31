@@ -1,0 +1,52 @@
+@font-face {
+  font-family: r-b;
+  src: url(../../fonts/Roboto-Black.ttf); }
+@font-face {
+  font-family: r-m;
+  src: url(../../fonts/Roboto-Regular.ttf); }
+@font-face {
+  font-family: r-l;
+  src: url(../../fonts/Roboto-Thin.ttf); }
+@font-face {
+  font-family: g-b;
+  src: url(../../fonts/Gotham/Gotham-Black.ttf); }
+@font-face {
+  font-family: g-m;
+  src: url(../../fonts/Gotham/Gotham-Book.ttf); }
+@font-face {
+  font-family: g-l;
+  src: url(../../fonts/Gotham/Gotham-Light.ttf); }
+@font-face {
+  font-family: mont;
+  src: url(../../fonts/montserrat/Montserrat-Regular.ttf); }
+@font-face {
+  font-family: mohave;
+  src: url(../../fonts/Packages/Mohave.otf); }
+* {
+  -webkit-box-sizing: border-box;
+  /* Chrome/Safari */
+  -moz-box-sizing: border-box;
+  /* Firefox */
+  -ms-box-sizing: border-box;
+  /* IE10+ */
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  font-size: 80%;
+  background: #282828;
+  background: #fff; }
+
+.fullView {
+  float: left;
+  width: 100vw;
+  height: 100vh; }
+
+.backgroundAnim {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0; }
+
+/*# sourceMappingURL=base.css.map */

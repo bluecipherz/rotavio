@@ -1,0 +1,178 @@
+.exploreCanvas{
+  position: fixed;
+  z-index: 10;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background: #350000;
+}
+.exp-progress{
+  position: fixed;
+  width: 200px;
+  height: 14px;
+  //margin-left: -100px;
+  margin-top: -7px;
+  top:50%;
+  left: 30%;
+  @include border-box();
+  border: 2px solid #fff;
+  padding: 3px;
+  z-index: 1000;
+  .expp-loaded{
+    position: relative;
+    float: left;
+    width: 0%;
+    height: 100%;
+    background: #fff;
+    @include transition(1s);
+  }
+}
+
+.exploreLanding{
+  position: relative;
+  float: left;
+  z-index: 100;
+  .el-right,
+  .el-left{
+    position: absolute;
+    left:5%;
+    width: 200px;
+    height: 100%;
+    padding-top:200px;
+    .ell-item:hover{
+      cursor: pointer;
+      //background: rgba(255,255,255,0.2);
+    }
+    .ell-item.active{
+      background: #fff;
+      color: #000;
+    }
+    .ell-item:before,
+    .ell-item:after{
+      content: '';
+      float: left;
+      position: absolute;
+      left: - 30px;
+      width: 10px;
+      top:24px;
+      height: 2px;
+      background: rgba(255,255,255,1);
+      @include transition(0.5s)
+    }
+    .ell-item:hover:after{
+      width: 30px;
+    }
+    .ell-item.active:after,
+    .ell-item.active:hover:after{
+      width: 30px;
+      background: #fff;
+    }
+    .ell-item:before{
+      width: 12px;
+      height: 12px;
+      @include border-radius(100%);
+      border: 2px solid rgba(255,255,255,1);
+      left: -42px;
+      top: 19px;
+      background: none;
+    }
+    .ell-item{
+      @include transition(0.5s);
+      position: relative;
+      width: 100%;
+      height: 50px;
+      margin: 20px 0;
+      font-family: g-m;
+      line-height:50px;
+      text-align: center;
+      color: #fff;
+      font-size: 120%;
+      @include border-box();
+      border: 1px solid rgba(255,255,255,1);
+    }
+  }
+  .el-right{
+    left:auto;
+    right: 5%;
+    width: 40%;
+    color: #333333;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    background: #fff;
+    right: 0%;
+    width: 45%;
+    padding-left:80px;
+    padding-right:80px;
+    padding-top:120px;
+    .elr-head{
+      position: relative;
+      width: 100%;
+      font-size: 40px;
+      float: left;
+      margin-bottom: 30px;
+    }
+    .elr-cont{
+      position: relative;
+      float: left;
+      line-height:1.56;
+      font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+      table{
+        width: 100%;
+        margin-top: 30px;
+        td{
+          padding-right: 20px;
+        }
+      }
+      p{
+        line-height: 150%;
+        width: 100%;
+        display: block;
+        float: left;
+      }
+      .elrc-heading{
+        float: left;
+        font-size: 140%;
+        //font-family: g-b;
+        clear: both;
+        margin-top: 20px;
+      }
+      .elrh-bold{
+        //font-family: g-b;
+        float: left;
+      }
+      .elrh-chips.-big{
+        line-height:40px;
+        height: 40px;
+        font-size: 120%;
+        clear: both;
+        @include border-radius(20px)
+      }
+      .elrh-chips{
+        //font-family: g-b;
+        color: #222;
+        display: block;
+        float: left;
+        background: #fff;
+        padding: 0 10px;
+        height: 26px;
+        line-height:26px;
+        margin-top: 2px;
+        margin-left: 3px;
+        font-size: 80%;
+        @include border-radius(15px)
+      }
+      .elrc-main{
+        //font-family: g-b;
+        font-size: 150%;
+      }
+    }
+  }
+}
+
+.exploreL2{
+  width: 100%;
+  float: left;
+  z-index: 100;
+  position: relative;
+  background: #fff;
+}

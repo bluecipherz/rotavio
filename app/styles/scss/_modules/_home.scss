@@ -1,0 +1,813 @@
+.header{
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  left: 0;
+  top:0;
+  z-index: 9999999;
+  .logo{
+    font-family: r-b;
+    float: left;
+    font-size: 40px;
+    color: #f85452;
+    margin:10px 20px;
+    span{
+      font-family: r-m;
+      color: #fff0fb;
+    }
+  }
+  ul{
+    display: block;
+    float: right;
+    height: 60px;
+    margin-right:40px;
+    li{
+      display: block;
+      float: left;
+      color: rgba(160,160,160,1);
+      height: 60px;
+      line-height: 60px;
+      padding:0 20px;
+      cursor: pointer;
+      font-family: r-b;
+    }
+    li.active:hover,
+    li.active{
+      cursor: default;
+      color: #ff5664;
+    }
+    li:hover{
+      color: rgba(180,180,180,1);
+    }
+  }
+}
+
+.hm-landing{
+  position: fixed;
+  overflow: hidden;
+  background: #686360;
+  .hmlbox{
+    position: absolute;
+    background: $black;
+    overflow: hidden;
+  }
+  $dashedBorder : 2px dashed rgba(255,255,255,0.3);
+  .hmlbox-left{
+    top:-1px;
+    left:-2px;
+    width: 50vh;
+    height: 100vh;
+    -webkit-clip-path: polygon(0 0, 0% 100%, 100% 50%);
+    clip-path: polygon(0 0, 0% 100%, 100% 50%);
+    .hb-left{
+      width: 100%;
+      height: 50%;
+      position: absolute;
+      left: 60%;
+      top:25%;
+      border: $dashedBorder;
+      @include transform(rotate(45deg));
+    }
+  }
+  .hmlbox-top{
+    top:-2px;
+    left:-1px;
+    width: 100vh;
+    height: 50vh;
+    -webkit-clip-path: polygon(0 0, 50% 100%, 100% 0);
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    .hb-top2,
+    .hb-top{
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      left: 25%;
+      top:60%;
+      border: $dashedBorder;
+      @include transform(rotate(45deg));
+    }
+    .hb-top2{
+      top: 0;
+      border: 0;
+      background: $grey;
+    }
+  }
+  .hmlbox-right{
+    top:-1px;
+    left:50vh;
+    //width: 50vh;
+    right: 0;
+    height: 100vh;
+    -webkit-clip-path: polygon(50vh 0, 100% 0, 100% 100%, 50vh 100%, 0 50%);
+    clip-path: polygon(50vh 0, 100% 0, 100% 100%, 50vh 100%, 0 50%);
+    .hb-right2,
+    .hb-right{
+      width: 50vh;
+      height: 50vh;
+      position: absolute;
+      left: -19%;
+      top:25%;
+      background:$lighGrey;
+      border: $dashedBorder;
+      @include transform(rotate(45deg));
+    }
+    .hb-right2{
+      left: -10%;
+      background: $grey;
+      border: 0;
+    }
+    .hmll-box{
+      z-index: 12;
+    }
+  }
+  .hmlbox-rightDummy{
+    bottom:0px;
+    right: 0;
+    left:100vh;
+    height: 2px;
+  }
+  .hmlbox-bottom{
+    top:50vh;
+    left:-1px;
+    width: 100vh;
+    height: 50vh;
+    -webkit-clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    .hb-bottom2,
+    .hb-bottom{
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      left: 25%;
+      bottom:60%;
+      border: $dashedBorder;
+      @include transform(rotate(45deg));
+    }
+    .hb-bottom2{
+      border: 0;
+      background: $grey;
+      bottom: 30%;
+    }
+  }
+  .hmll-box{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    @include transition(10s cubic-bezier(0, 0, 0.01, 0.96));
+  }
+  .hm-text{
+    width: 100vw;
+    height: 100vh;
+    .hm-title{
+      line-height: 130vh;
+    }
+    text-align: center;
+    position: absolute;
+    z-index: 10;
+    color: #fefefe;
+    font-size: 870%;
+    @include transition(10s cubic-bezier(0, 0, 0.01, 0.96));
+    span{
+      opacity: 0;
+    }
+  }
+  .hm-img-cart{
+    position: absolute;
+    right: -20%;
+    height: 94vh;
+    top:3vh;
+    z-index: 8;
+    @include transition(10s cubic-bezier(0, 0, 0.01, 0.96));
+    img{
+      width: auto;
+      height: 100%;
+    }
+  }
+}
+.homeTitle{
+  position: absolute;
+  left:0;
+  width: 100%;
+  min-height: 100vh;
+  top:0;
+  z-index: 1000;
+  color:#fff;
+  .hm-title{
+    font-size: 120px;
+    line-height: 100vh;
+    font-family: mohave;
+    text-align: center;
+  }
+  background:rgba(80, 80, 80, 0.5);
+  .homeTitle-bg2{
+    position: absolute;
+    left:0;
+    bottom: 0%;
+    top:0;
+    right:0;
+    z-index: -1;
+  }
+}
+.fullW{
+  width: 100vw;
+}
+.fullH{
+  height:100vh;
+  width: 100%;
+  position: relative;
+
+  .droneImg{
+    position: absolute;
+    top:0;
+    width: 50%;
+    left: -50px;
+    overflow: hidden;
+  }
+
+  .fh-txt{
+    font-family: mont;
+    font-size: 30px;
+    line-height: 130%;
+    position: absolute;
+    top:40%;
+    right:10%;
+    z-index: 2000;
+    text-align: left;
+  }
+}
+
+.greyGrad{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#505050+0,2f2c2b+100 */
+  //background-image: #505050; /* Old browsers */
+  //background-image: -moz-linear-gradient(top,  #505050 0%, #2f2c2b 100%); /* FF3.6-15 */
+  //background-image: -webkit-linear-gradient(top,  #505050 0%,#2f2c2b 100%); /* Chrome10-25,Safari5.1-6 */
+  //background-image: linear-gradient(to bottom,  #505050 0%,#2f2c2b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#505050', endColorstr='#2f2c2b',GradientType=0 ); /* IE6-9 */
+
+}
+
+.gmnoprint{
+  display: none!important;
+}
+.mapOverlay{
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right :0;
+  z-index: 100000;
+}
+.mapDiv{
+  overflow: hidden;
+  img{
+    width: 110vw;
+    min-height: 100vh;
+  }
+}
+.contentBox{
+  width: 500px;
+  float: left;
+  height: 300px;
+  margin:300px 0 0 200px;
+  border: 5px solid #f82a2a;
+  position: relative;
+  .cbName{
+    position: absolute;
+    top: -60px;
+    left: 0;
+    font-size: 50px;
+    font-family:r-b;
+    color:#fff;
+  }
+  .cbContent{
+    @include border-box();
+    padding:40px;
+    font-family:r-m;
+    font-size: 16px;
+    text-align: left;
+    line-height: 200%;
+    color: #ccc;
+    width: 100%;
+    height: 100%;
+  }
+}
+.hm2-droneImg{
+  float: right;
+  position: absolute;
+  top:0;
+  right:0;
+  width: 100%;
+  height: 100vh;
+  img{
+    float: right;
+    height:80vh;
+    margin-top:20vh;
+  }
+}
+
+.footer{
+  width: 100%;
+  float: left;
+  font-size: 15px;
+  height: 80px;
+  line-height:80px;
+  text-align: center;
+  background: #302d2d;
+  color:rgba(255,255,255,0.4);
+  font-family:r-l;
+}
+.mapAdr{
+  position: absolute;
+  bottom: 150px;
+  background: #fff;
+  float: left;
+}
+
+/*
+ * NEW CSS ================================================================
+ */
+
+.fullscale{
+  width: 100%;
+  height:100%;
+  position: relative;
+  float: left;
+}
+.hm-title{
+  background: #343434;
+  z-index: 40;
+  height: 110vh!important;
+
+}
+.hm-title:after {
+  position: absolute;
+  bottom:-200px;
+  left: 0;
+  right: 0;
+  height: 200px;
+  content: '';
+  display: block;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#343434+0,343434+100&1+0,0+100 */
+  background: -moz-linear-gradient(top, rgba(52,52,52,1) 0%, rgba(52,52,52,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(52,52,52,1) 0%,rgba(52,52,52,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(52,52,52,1) 0%,rgba(52,52,52,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#343434', endColorstr='#00343434',GradientType=0 ); /* IE6-9 */
+}
+.hmtitle{
+  position: absolute;
+  top:0;
+  left:0;
+  height: 100vh;
+  width: 100vw;
+
+}
+.hm-b1{
+  margin-top:40vh;
+  margin-left:-10vh;
+}
+.hm-building{
+  position: fixed;
+  left: -10vw;
+  top: 20vw;
+  width: 120vw;
+}
+.hmt3-imgC,
+.hmt3-img{
+  position: fixed;
+  width: 120vw;
+  left: -10vw;
+  bottom:-20vh;
+  z-index: 1;
+}
+.hmt3-imgC{
+  width: 55vw;
+  left: 38vw;
+  bottom: 0;
+}
+.cloudSet{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  //background-color: rgba(255,0,0,0.2);
+  z-index: 45;
+  margin-top:-70vh;
+  .cloud{
+    position: absolute;
+    width: 38vw;
+    height: 38vw;
+    opacity: 0.2;
+    //background: rgba(0,255,255,0.3);
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  .cloud-1 {
+    left:-5vw;
+    top:20vw;
+    z-index: 8;
+    opacity: 0.15;
+    img{
+      @include transform(rotate(-5deg))
+    }
+  }
+  .cloud-2 {
+    left:18vw;
+    top:-22vw;
+    width: 66vw;
+    z-index: 9;
+    img{
+      @include transform(rotate(-90deg))
+    }
+  }
+  .cloud-3 {
+    right:-5vw;
+    top:-13vw;
+    left: auto;
+    z-index: 10;
+    img{
+      @include transform(rotate(-50deg));
+      opacity: 0.3;
+    }
+  }
+  .cloud-4 {
+    width: 90vw;
+    opacity: 0.05;
+    margin-left: 10vw;
+    margin-top: 10vh;
+  }
+  .cloud-5 {
+    width: 120vw;
+    opacity: 0.4;
+    margin-left: -10vw;
+    margin-top: 100vh;
+  }
+
+
+  .hmt1 {
+    float: left;
+    position: relative;
+    width: 100%;
+    margin-top: -16vw;
+  }
+  .hm1-drone{
+    width: 500px;
+    height: 500px;
+    float: left;
+    position: absolute;
+    top:80vh;
+    right: 100px;
+    .hm1-dbody{
+      @include transform(rotate(65deg));
+      width: 165px;
+      height: auto;
+    }
+    .hm1-dleaf{
+      width: 700px;
+      position: absolute;
+      top:327px;
+      left:-180px;
+    }
+    .hm1-dleaf-1,
+    .hm1-dleaf-2,
+    .hm1-dleaf-3,
+    .hm1-dleaf-4{
+      width: 350px;
+      position: absolute;
+    }
+    .hm1-dleaf-1{
+      top:5px;
+      left:-153px;
+    }
+    .hm1-dleaf-2{
+      top:10px;
+      right:-143px;
+    }
+    .hm1-dleaf-3{
+      bottom: -18px;
+      left: -141px;
+    }
+    .hm1-dleaf-4{
+      bottom:-10px;
+      right:-154px;
+    }
+  }
+}
+
+.hmt1-cont.-right,
+.hmt1-head1.-right,
+.hmt1-head2.-right{
+  width: 51%!important;
+  text-align: left!important;
+  padding-left: 0!important ;
+  margin-right: 0!important ;
+  *{
+    text-align: left!important;
+  }
+}
+.hmt1-cont,
+.hmt1-head1,
+.hmt1-head2{
+  width: 100%;
+  line-height: 100%;
+  padding-left: 200px;
+  float: left;
+}
+.hmt1-head1{
+  font-family:g-l;
+  font-size: 60px;
+}
+.hmt1-head2{
+  font-family:g-b;
+  font-size: 80px;
+}
+.hmt1-cont{
+  font-size: 170%;
+  line-height:160%;
+  padding: 0;
+  //padding: 30px 20px;
+  //background: rgba(255,0,0,0.2);
+  margin-left: 200px;
+  //border: 1px solid #fff;
+  width: auto;
+  font-family: g-b;
+  margin-top: 120px;
+  clear: both;
+  position: relative;
+}
+.hm1-ex-btn:hover{
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+}
+.hm1-ex-btn.-right{
+  float: left!important;
+  margin-left: 49%!important;
+}
+.hm1-ex-btn{
+  @include transition(0.4s);
+  @include border-box();
+  width: 170px;
+  height: 50px;
+  line-height: 46px;
+  text-align: center;
+  //background: #fff;
+  margin: 30px 200px;
+  float: left;
+  border: 2px solid #fff;
+  clear: both;
+  font-size: 150%;
+  font-family: g-m;
+  color: #fff;
+}
+
+
+.hmt1-svgBg{
+  position: absolute;
+  left: 0vh;
+  z-index: -1;
+  path{
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    @include transition(.1s);
+  }
+}
+
+.hmt2{
+  background: #fff;
+  margin-top: -10vh;
+  z-index: 50;
+  position: relative;
+  overflow: hidden;
+  div{
+    color:#000;
+    text-align: right;
+    float: right;
+    margin-right: 200px;
+  }
+  .hmt1-head1{
+    margin-top:180px;
+    font-size: 50px;
+  }
+  .hmt1-head2{
+    font-size: 60px;
+  }
+  .hmt1-cont{ margin-top: 50px }
+  .hm1-ex-btn:hover{
+    color: #fff;
+    background: #000;
+  }
+  .hm1-ex-btn{
+    border-color: #000;
+    color: #000;
+    text-align: center;
+  }
+
+  .hmt1-svg{
+    position: absolute;
+    left:200px;
+    top:170px;
+    margin: 0;
+    path{
+      stroke-dasharray: 819;
+      stroke-dashoffset: 819;
+      @include transition(.1s);
+    }
+  }
+  .hmt2-servo{
+    width: 40%;
+    position: absolute;
+    height: 70%;
+    margin:10% 0 0 6%;
+    float: left!important;
+  }
+}
+.hmt3{
+  z-index: 130;
+  position: relative;
+
+  .hmt1-head1{
+    margin-top:180px;
+    font-size: 50px;
+  }
+  .hmt1-head2{
+    font-size: 60px;
+  }
+  .hmt1-cont{  }
+  .hm1-ex-btn:hover{
+    color: #fff;
+    background: #000;
+  }
+  .hm1-ex-btn{
+    border-color: #000;
+    color: #000;
+    text-align: center;
+  }
+}
+.hmt4{
+  position: relative;
+  background: #444;
+  z-index: 60;
+  .hmt1-head1,
+  .hmt1-head2,
+  .hmt1-cont{
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .hmt1-head1{
+    color: #fff;
+    font-size: 80px;
+    margin-top: 230px;
+    span{
+      font-family: g-b;
+      color:#2ecc71;
+    }
+  }
+  .hmt1-head2{
+    color: #ff3324;
+  }
+}
+
+
+
+.hmt5-mac{
+  position: absolute;
+  width: 40%;
+  right:6%;
+  top:20%;
+  margin-right:0!important;
+  img{
+    margin-right:0!important;
+    width: 100%;
+    height: auto;
+  }
+}
+.hmt5{
+  height: 120vh!important;
+  .hmt1-head1,
+  .hmt1-head2,
+  .hmt1-cont,
+  .hm1-ex-btn
+  {
+    float: left;
+    text-align: left;
+  }
+  .hmt1-head1{
+    margin-top: 12%;
+  }
+  .hmt1-head2{
+    color: #3498db!important;
+  }
+  .hm1-ex-btn{
+    text-align: center;
+  }
+}
+
+
+
+
+.footer-bottom{
+  width: 100%;
+  z-index: 90;
+  background: #333;
+  float: left;
+  height: auto;
+  position: relative;
+  .foo-right,
+  .foo-left{
+    float: left;
+    height: 100%;
+    width: 50%;
+    margin: 70px 0 40px 0;
+    @include border-box();
+    padding: 0 10vw;
+    border-right: 1px solid #666;
+    .fool-head,
+    .fool-subhead{
+      float: left;
+      height: auto;
+      width: 100%;
+      line-height:100%;
+    }
+    .fool-head{
+      font-family: g-b;
+      font-size: 40px;
+    }
+    .fool-subhead{
+      font-size: 120%;
+      line-height: 150%;
+      font-family: g-m;
+      color: #bbb;
+    }
+  }
+  form{
+    width: 100%;
+    float: left;
+    display: block;
+    margin-top:40px;
+    margin-bottom:40px;
+    textarea,
+    input{
+      width: 100%;
+      border: 0;
+      background: rgba(0,0,0,0.3);
+      @include border-radius(3px);
+      height: 45px;
+      margin:5px 0;
+      padding-left: 15px;
+      float: left;
+      font-size: 110%;
+      color: #fff;
+      font-family: g-m;
+    }
+    input[type=button]{
+      padding-left: 0;
+      background: #2ecc71;
+    }
+    textarea{
+      height: 100px;
+      padding-top: 15px;
+    }
+  }
+  .foo-right{
+    border: none;
+    padding: 0;
+    height: 100%;
+    .foor-cont{
+      text-align: center;
+      font-family:g-m;
+      color: #666;
+      font-size: 150%;
+      line-height:140%;
+      span{
+        font-size:110%;
+        font-family: g-b;
+      }
+    }
+    .foor-head{
+      margin-top: 22vh;
+      text-align: center;
+      font-size: 70px;
+      font-family: g-b;
+      color: #777;
+    }
+    .foor-foot:hover{
+      color: #1abc9c;
+      cursor: pointer;
+    }
+    .foor-foot{
+      position: absolute;
+      line-height: 100px;
+      text-align: right;
+      right: 50px;
+      font-family: g-m;
+      bottom: 0;
+      text-transform: uppercase;
+      color: #777;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+<div class="fullView wwaPage" id="wwaPage">
+  <div class="wwa-head-set" id="wwa-head-set">
+    <div class="wwa-head" id="wwaHead">Rotavio <span>Labs</span></div>
+    <div class="wwa-motto" id="wwaMotto">We are the awesome poeple ever found this is demo motto</div>
+  </div>
+
+  <div class="imgBox wwa-al-left" id="wwa-img"><img src="images/wwa/img1.jpg"></div>
+  <div class="imgBox wwa-al-right" id="wwa-cont">
+    <div class="wwa-c-head1">We are</div>
+    <div class="wwa-c-head2">ROTAVIO</div>
+    <div class="wwa-c-cont">Rotavio Labs Private Limited  is a company whose genesis occurred in the Helicopter Lab of IIT Kanpur in the year 2011. It is mentored by esteemed faculty of the Aerospace Department of IIT Kanpur. High-end research related to rotorcrafts complementing design and manufacturing capabilities of the industry is taken up</div>
+  </div>
+
+
+  <div class="wwa-itemSet" >
+    <div class="wwa-item"ng-repeat="item in vm.items" ng-click="vm.selectItem(item)"  ng-class="{'active': vm.selectedItem.id == item.id}">
+      <div class="wwa-item-background">
+        <!--<div class="wwa-item-background-trigger"></div>-->
+        <div class="wwa-item-cont" ng-click="vm.deselectItem(item)">
+          <div class="wwai-img">
+            <img  ng-src="{{item.img}}">
+          </div>
+          <div class="wwai-name">{{item.name}}</div>
+          <div class="wwai-hover-cont">
+            <div class="wwai-hover2"></div>
+            <div class="wwai-hover"></div>
+          </div>
+          <div class="wwai-data">
+            <div class="wwaid-name">{{item.name}}</div>
+            <div class="wwaid-head">{{item.domain}}</div>
+            <div class="wwaid-item" ng-repeat="list in item.details">{{list}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="foo-left">
+      <div class="fool-head" style="color:#fff!important;">Lets Talk</div>
+      <div class="fool-subhead">Feel free to say Hello!</div>
+      <form>
+        <input type="text" placeholder="Name">
+        <input type="text" placeholder="Email">
+        <textarea placeholder="Message"></textarea>
+        <input type="button" value="SUBMIT">
+      </form>
+    </div>
+    <div class="foo-right">
+      <a class="foor-foot">D & D By Blueciphers</a>
+      <div class="foor-head">ROTAVIO LABS</div>
+      <div class="foor-cont">ROTAVIO LABS <span>&copy</span> ALL RIGHTS RESERVED 2016</div>
+    </div>
+  </div>
+
+</div>
+

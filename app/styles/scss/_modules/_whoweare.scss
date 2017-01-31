@@ -1,0 +1,255 @@
+.wwa-head-set{
+  width: 100%;
+  position: relative;
+  float: left;
+  margin-top: 100vh;
+  margin-bottom: -25vh;
+}
+.wwa-motto,
+.wwa-head{
+  width: 100%;
+  font-size: 130px;
+  font-family: mohave;
+  color: #000;
+  text-align: center;
+  //font-family:g-l;
+  text-transform: uppercase;
+  span{
+    font-family: mohave;
+    //font-family:g-b;
+    color: #ec0001;
+  }
+}
+.wwa-motto{
+  letter-spacing: .1em;
+  margin-top: 0px;
+  font-size: 13px;
+  color:#555;
+  //font-family: mohave;
+  font-family:g-m;
+  margin-bottom: 200px;
+}
+.imgBox{
+  position: relative;
+  float: left;
+  //border: 1px solid #000;
+  width: 500px;
+  height: 500px;
+  margin: 50px;
+}
+.wwa-al-left{
+  width: 40vw;
+  margin-left: 8vw;
+  margin-top: 25vh;
+  overflow: hidden;
+  position: relative;
+  img{
+    position: absolute;
+    left: 0;
+    height: 100%;
+  }
+}
+.wwa-al-right{
+  width: 40vw;
+  margin-left: 2vw;
+  margin-top: 25vh;
+  .wwa-c-head1,
+  .wwa-c-head2{
+    font-size:55px;
+    font-family: g-l;
+  }
+  .wwa-c-head2{
+    font-size: 60px;
+    font-family: g-b;
+  }
+  .wwa-c-cont{
+    font-family: g-m;
+    font-size:150%;
+    width: 72%;
+    line-height: 140%;
+    margin-top: 50px;
+  }
+}
+.wwa-itemSet{
+  position: relative;
+  float: left;
+  width: 80vw;
+  margin: 100px 10vw;
+  $itemWidth : (19.3333 * 0.8) + vw;
+  $itemWidthH : (19.3333 * 0.8 / 2) + vw;
+  .wwa-item:hover{
+    cursor: pointer;
+    .wwai-hover-cont{
+      transform: scale(1);
+    }
+    .wwai-img{
+      transform: scale(0.9);
+    }
+  }
+
+  .wwa-item.active{
+    z-index:1000;
+    .wwa-item-background{
+      position: fixed;
+      top:0%;
+      left:0%;
+      right:0%;
+      bottom:0%;
+      background:rgba(0,0,0,0.2);
+      .wwai-data{
+        display: block;
+      }
+      .wwa-item-cont{
+        background: #fff;
+        top:10%;
+        bottom: 10%;
+        left:15%;
+        right:15%;
+        position:absolute;
+        width: auto;
+        height: auto;
+        .wwai-name{
+          display: none;
+        }
+        .wwai-img{
+          margin-left:50%;
+          margin-top:80px;
+          transform: scale(0.9) translateX(-$itemWidthH);
+        }
+        .wwai-hover-cont{
+          z-index: 10;
+          display: none;
+        }
+      }
+    }
+  }
+  .wwa-item{
+    .wwa-item-contDummy{
+      width: $itemWidth;
+      height: $itemWidth;
+    }
+    .wwa-item-background{
+      width: 100%;
+      height: 100%;
+      position: relative;
+      left:0;
+      top:0;
+      bottom:0;
+      right:0;
+      @include transition(0.5s);
+    }
+    .wwa-item-cont{
+      @include border-radius(3px);
+      width: 100%;
+      height: 100%;
+      position: relative;
+      left:0;
+      top:0;
+      bottom:0;
+      right:0;
+      float: left;
+    }
+    width: $itemWidth;
+    margin:50px 7%;
+    float: left;
+    cursor: pointer;
+    position: relative;
+    z-index: 100;
+    .wwai-name{
+      width: 100%;
+      float: left;
+      text-align: center;
+      font-family: g-m;
+      font-size: 150%;
+      margin-top: 30px;
+      height:50px;
+    }
+    .wwai-img{
+      width: $itemWidth ;
+      height: $itemWidth ;
+      background: #eee;
+      float: left;
+      @include transition(transform 0.4s);
+      @include border-radius(100%);
+      position: relative;
+      overflow: hidden;
+      img{
+        width: 100%;
+        height:100%;
+      }
+    }
+    $borderOne : 8px solid #f61d1e;
+    $borderTwo : 2px solid #c1bdbd;
+    .wwai-hover-cont{
+      position: absolute;
+      width: $itemWidth ;
+      height: $itemWidth ;
+      top:0;
+      left: 0;
+      z-index: -1;
+      @include transition(0.4s);
+      @include transform(scale(0.8))
+    }
+    .wwai-hover2,
+    .wwai-hover{
+      position: absolute;
+      width: $itemWidth ;
+      height: $itemWidth ;
+      top:0;
+      left: 0;
+      z-index: -1;
+      @include border-box();
+      @include border-radius(100%);
+      border: $borderOne;
+      border-bottom-color: transparent;
+      border-top-color: transparent;
+      @include transform(scale(1.1));
+      -webkit-animation: itemHover 8s linear infinite;
+      -o-animation: itemHover 8s linear infinite;
+      animation: itemHover 8s linear infinite;
+    }
+    .wwai-hover2{
+      border: $borderTwo;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      -webkit-animation: itemHover2 3.5s linear infinite;
+      -o-animation: itemHover2 3.5s linear infinite;
+      animation: itemHover2 3.5s linear infinite;
+    }
+  }
+}
+@keyframes itemHover {
+  0%   {@include transform(scale(1.05) rotate(0deg))}
+  100%   {@include transform(scale(1.05) rotate(360deg))}
+}
+
+@keyframes itemHover2 {
+  0%   {@include transform(scale(1.03) rotate(0deg))}
+  100%   {@include transform(scale(1.03) rotate(360deg))}
+}
+.wwai-data{
+  display: none;
+  width: 100%;
+  float: left;
+  .wwaid-item,
+  .wwaid-head,
+  .wwaid-name{
+    width:100%;
+    text-align: center;
+    font-family: g-m;
+    font-size: 250%;
+    color: #34495e;
+    margin-top: 30px;
+  }
+  .wwaid-head{
+    font-size: 130%;
+    color:#555;
+    margin-top:5px;
+    margin-bottom:20px;
+  }
+  .wwaid-item{
+    font-size: 150%;
+    color:#555;
+    margin-top:10px;
+  }
+}
