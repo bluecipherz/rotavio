@@ -4,18 +4,82 @@ angular.module('BczUiApp')
   .controller('ExploreCtrl', function (loginService, paraService) {
       $(window).scrollTop(1);
       var vm = this;
-    vm.selectedTab = 0;
 
-    var renderer, camera, loader, viewportHeight, viewportWidth, scene, viewportId = 'explore', geoMesh, world, mainprop, backprop;
-    var maxRotSpeed = 0.25;
+      if(!paraService.selectedTab) {
+        vm.selectedTab = { id:0, camId : 0 };
+        paraService.selectedTab = vm.selectedTab;
+      }else{
+        vm.selectedTab = paraService.selectedTab;
+      }
+
+      vm.selectTab = function (id) {
+        vm.selectedTab.id = id;
+        vm.selectedTab.camId = 0;
+        paraService.selectedTab = vm.selectedTab;
+      }
+
+      vm.selectTab(0);
+
+
+
+
+
+
+      // WebGL
+
+    var renderer, camera, loader, viewportHeight, viewportWidth, scene, viewportId = 'explore', geoMesh, world, mainprop, backprop, directionalLight,screenMaterial;
+    var maxRotSpeed = 0.25, imacScreen;
+
+    if(paraService.screenMaterial){
+      screenMaterial = paraService.screenMaterial;
+    }else{
+      var texture = THREE.ImageUtils.loadTexture( "images/home/software/1.png" );
+      screenMaterial = new THREE.MeshPhongMaterial({map : texture,color:0xdddddd, vertexColors : THREE.VertexColors, specular: 0x555555, shininess: 100});
+      paraService.screenMaterial = screenMaterial;
+    }
+
 
     var camPos = [
-      {lookAt: new THREE.Vector3(1.5,0,0), position:{x: 4, y: 4, z: 6}},
-      {lookAt: new THREE.Vector3(1.5,0,0), position:{x: 8, y: 1, z: 8}},
-      {lookAt: new THREE.Vector3(1.5,0,0), position:{x: 4, y: 11, z: 4}},
-      {lookAt: new THREE.Vector3(1.5,0,0), position:{x: 5, y: 5, z: 3}},
-      {lookAt: new THREE.Vector3(1.5,0,0), position:{x: 2.1, y: 0.8, z: 3}},
+      {lookAt: {x:0, y:0, z:0}, position:{x: 4, y: 4, z: 6}},
+      {lookAt: {x:0, y:0, z:0}, position:{x: 8, y: 1, z: 8}},
+      {lookAt: {x:0, y:0, z:0}, position:{x: 4, y: 11, z: 4}},
+      {lookAt: {x:0, y:0, z:0}, position:{x: 5, y: 5, z: 3}},
+      {lookAt: {x:0, y:0, z:0}, position:{x: 2.1, y: 0.8, z: 3}},
     ]
+
+    var camLookAt = [
+      {
+        lookAt: {x:0, y:0, z:0},
+        position:[
+          {x: 4, y: 4, z: 6},
+          {x: 8, y: 1, z: 8},
+          {x: 2.1, y: 0.8, z: 3},
+          {x: 5, y: 5, z: 3},
+          {x: 4, y: 11, z: 4}
+        ]
+      },
+      {
+        lookAt: {x:0, y:0, z:0},
+        zoom:0.5,
+        position:[
+          {x: 4, y: 4, z: 6},
+          {x: 8, y: 1, z: 8},
+          {x: 4, y: 11, z: 4},
+          {x: 5, y: 5, z: 3},
+          {x: 2.1, y: 0.8, z: 3}
+        ]
+      },
+      {
+        lookAt: {x:0, y:0, z:0},
+        dontRotate: true,
+        position:[
+          {x: 2.4, y:0.2, z: 2.4},
+        ]
+      },
+    ]
+
+
+
 
     function initThree(){
       var threeInter = setInterval(function () {
@@ -61,56 +125,47 @@ angular.module('BczUiApp')
 
       if(paraService.exploreCamera) delete paraService.exploreCamera;
 
-      camera = new THREE.PerspectiveCamera(45, viewportWidth / viewportHeight, 1, 1000);
-      camera.position.set(4, 4, 6);
-      paraService.exploreCamera = camera;
+      camera = new THREE.PerspectiveCamera(45, viewportWidth / viewportHeight, 0.01, 1000);
 
-      loader = new THREE.JSONLoader();
       if(!paraService.exploreScene){
-        scene = new THREE.Scene();
+
+        scene   = new THREE.Scene();
+        scene.fog	= new THREE.FogExp2( '#777777', 0.04 );
+        loader  = new THREE.JSONLoader();
+        world   = new THREE.Group();
         paraService.exploreScene = scene;
 
-        world = new THREE.Group();
-
-
         var material = new THREE.MeshPhongMaterial({
-          // map : texture,
-          color : 0x550000,
-          vertexColors : THREE.VertexColors,
-          specular: 0x555555,
-          shininess: 10,
-        });
-
-        var geometry = new THREE.CubeGeometry(1000, 0.01, 1000);
-        var ground = new THREE.Mesh(geometry, material);
-        // ground.position.x = -50;
-        ground.position.y = -1.1;
-        ground.receiveShadow = true;
-        world.add(ground);
-        scene.add(world);
-
-        material = new THREE.MeshPhongMaterial({
-          // map : texture,
           color : 0x444444,
           vertexColors : THREE.VertexColors,
           specular: 0x555555,
-          shininess: 100,
+          shininess: 5,
         });
-        var materialProp = new THREE.MeshPhongMaterial({
-          // map : texture,
-          color : 0x111111,
-          vertexColors : THREE.VertexColors,
-          specular: 0x555555,
-          shininess: 10,
-        });
+        var geometry = new THREE.CubeGeometry(1000, 0.01, 1000);
+        var ground = new THREE.Mesh(geometry, material);
 
-        var materialGlass = new THREE.MeshPhongMaterial({
-          // map : texture,
-          color : 0x080808,
-          vertexColors : THREE.VertexColors,
-          specular: 0xffffff,
-          shininess: 200,
-        });
+        ground.position.y = -0.54;
+        ground.receiveShadow = true;
+
+        var material = new THREE.MeshPhongMaterial({color : 0x550000, vertexColors : THREE.VertexColors, specular: 0x555555, shininess: 100,});
+        var materialProp = new THREE.MeshPhongMaterial({color : 0x111111, vertexColors : THREE.VertexColors, specular: 0x555555, shininess: 10,});
+        var materialGlass = new THREE.MeshPhongMaterial({color : 0x080808, vertexColors : THREE.VertexColors, specular: 0xffffff, shininess: 200});
+
+        //sky
+
+        var skyGeo = new THREE.SphereGeometry(500, 25, 25);
+
+        var skyMat = new THREE.MeshLambertMaterial({color : 0xaaaaaa, vertexColors : THREE.VertexColors});
+
+        var skyMesh = new THREE.Mesh(skyGeo, skyMat)
+        skyMesh.material.side = THREE.BackSide;
+        skyMesh.position.x = 0;
+        skyMesh.position.z = 0;
+
+
+        world.add(skyMesh)
+        world.add(ground);
+        scene.add(world);
 
         if(!paraService.droneBody){
           if(!geoMesh) geoMesh = new THREE.Group();
@@ -121,8 +176,14 @@ angular.module('BczUiApp')
             // gMesh.receiveShadow = true;
             gMesh.shadowCameraFar  = 10000;
             geoMesh.add(gMesh);
+            geoMesh.rotation.x = 0.03;
+            geoMesh.position.x = 6;
+            camLookAt[0].lookAt = geoMesh.position;
+            var scale = 0.5;
+            geoMesh.scale.set(scale,scale,scale);
             paraService.droneBody = geoMesh;
           },onProgress)
+
           loader.load('models/drone1/mainprop.js', function (geo, mat) {
             geo.computeVertexNormals();
             mainprop = new THREE.Mesh(geo, materialProp);
@@ -133,6 +194,7 @@ angular.module('BczUiApp')
             paraService.droneBody = geoMesh;
             startAnimation();
           },onProgress)
+
           loader.load('models/drone1/backprop.js', function (geo, mat) {
             // geo.computeVertexNormals();
             backprop = new THREE.Mesh(geo, materialProp);
@@ -146,6 +208,7 @@ angular.module('BczUiApp')
             paraService.droneBody = geoMesh;
             startAnimation();
           },onProgress)
+
           loader.load('models/drone1/glass.js', function (geo, mat) {
             geo.computeVertexNormals();
             var gMesh = new THREE.Mesh(geo, materialGlass);
@@ -160,24 +223,63 @@ angular.module('BczUiApp')
             startAnimation();
           },onProgress)
 
+          loader.load('models/servo/servo.js', function (geo, mat) {
+            geo.computeVertexNormals();
+            var Smat = new THREE.MeshPhongMaterial({color : 0x440000, vertexColors : THREE.VertexColors, specular: 0x555555, shininess: 100,});
+            var gMesh = new THREE.Mesh(geo, Smat);
+            gMesh.castShadow = true;
+            // gMesh.receiveShadow = true;
+            gMesh.shadowCameraFar  = 10000;
+            gMesh.position.z = 6;
+            gMesh.position.y = -0.3;
+            gMesh.position.x = -6;
+            camLookAt[1].lookAt = gMesh.position;
+            var scale = 0.35;
+            gMesh.scale.set(scale,scale,scale);
+            scene.add(gMesh);
+            startAnimation();
+          },onProgress)
+
+          loader.load('models/imac/imac.js', function (geo, mat) {
+            geo.computeVertexNormals();
+            var Smat = new THREE.MeshPhongMaterial({color : 0x111111, vertexColors : THREE.VertexColors, specular: 0x555555, shininess: 100,});
+            var gMesh = new THREE.Mesh(geo, Smat);
+            gMesh.castShadow = true;
+            // gMesh.receiveShadow = true;
+            gMesh.shadowCameraFar  = 10000;
+            gMesh.position.z = -6;
+            gMesh.position.y = -0.53;
+            gMesh.position.x = -6;
+            camLookAt[2].lookAt = angular.copy(gMesh.position);
+            camLookAt[2].lookAt.y = 0.25;
+            var scale = 0.0025;
+
+
+            imacScreen = new THREE.Mesh(new THREE.CubeGeometry(1.55/scale,0.95/scale,0.01/scale), screenMaterial);
+            imacScreen.position.y = 0.78/scale;
+            imacScreen.position.z = 0.120/scale;
+            imacScreen.rotation.x = -0.18;
+            paraService.imacScreen = imacScreen;
+            gMesh.add(imacScreen);
+            gMesh.scale.set(scale,scale,scale);
+            scene.add(gMesh);
+            startAnimation();
+          },onProgress)
+
           var light = new THREE.AmbientLight('#ccc'); // soft white light
           scene.add(light);
-          createSpotlight(5, 4, 5, true);
-
+          createSpotlight(80, 120, 0, true);
         }else{
           geoMesh = paraService.droneBody;
           camera.lookAt(geoMesh.position);
           $('.exp-progress').hide();
-
-
         }
       }else{
         scene = paraService.exploreScene;
         $('.exp-progress').fadeOut(500);
       }
 
-
-      var totalObjects = 4;
+      var totalObjects = 6;
       var totalLoaded = 0;
 
       function onProgress(event) {
@@ -201,25 +303,35 @@ angular.module('BczUiApp')
       renderer.render(scene, camera)
     }
 
+    var imacMapId = 0;
+
+    function changeIMacScreen() {
+      if(imacMapId < 9) imacMapId++
+      else imacMapId = 1;
+      var texture = THREE.ImageUtils.loadTexture( "images/home/software/"+imacMapId+".png" );
+      screenMaterial.map = texture;
+    }
+
+
     function createSpotlight(x, y, z, shadow) {
 
-      // Create directional light and add to scene.
-      var directionalLight = new THREE.SpotLight(0xffffff);
+      directionalLight = new THREE.DirectionalLight(0xffffff);
+      // directionalLight = new THREE.PointLight(0xffffff);
       directionalLight.position.set(x, y, z);
       if(shadow){
         directionalLight.castShadow = true;
-        directionalLight.shadow.camera.far = 100;
+        directionalLight.shadow.camera.far = 1000;
         directionalLight.shadow.camera.near = 0.1;
-        directionalLight.intensity = 2;
+        directionalLight.intensity = 1.7;
         directionalLight.shadow.camera.visible = true;
-        directionalLight.shadow.camera.right     =  2;
-        directionalLight.shadow.camera.reft     = -2;
-        directionalLight.shadow.camera.top      =  2;
-        directionalLight.shadow.camera.bottom   = -2;
+        directionalLight.shadow.camera.right    =  7;
+        directionalLight.shadow.camera.left     = -7;
+        directionalLight.shadow.camera.top      =  7;
+        directionalLight.shadow.camera.bottom   = -7;
         // directionalLight.shadowBias = 0.0001;
         directionalLight.shadowDarkness = 0.2;
-        directionalLight.shadowMapWidth = 2048;
-        directionalLight.shadowMapHeight = 2048;
+        directionalLight.shadowMapWidth = 3048;
+        directionalLight.shadowMapHeight = 3048;
       }
 
       geoMesh.add(directionalLight);
@@ -235,37 +347,81 @@ angular.module('BczUiApp')
       render();
     }
 
-    function render() {
-      world.rotation.y -= 0.010;
-      if(backprop) backprop.rotation.z += 0.2;
-      if(mainprop) mainprop.rotation.y -= 0.03;
 
-      // camera.position.x += 0.2;
-      //
-      if(camPos[vm.selectedTab]){
-        camera.lookAt(camPos[vm.selectedTab].lookAt)
-        var cxDiff = camera.position.x - camPos[vm.selectedTab].position.x;
-        var cyDiff = camera.position.y - camPos[vm.selectedTab].position.y;
-        var czDiff = camera.position.z - camPos[vm.selectedTab].position.z;
-        console.log(cxDiff)
-        if(cxDiff < 0){
-          camera.position.x += Math.min(Math.abs(cxDiff) / 10, maxRotSpeed);
-        }else if(cxDiff > 0) {
-          camera.position.x -= Math.min(Math.abs(cxDiff) / 10, maxRotSpeed);
-        }
+    // CAMERA SETTINGS AND FUNCTION
 
-        if(cyDiff < 0){
-          camera.position.y += Math.min(Math.abs(cyDiff) / 10, maxRotSpeed);
-        }else if(cyDiff > 0) {
-          camera.position.y -= Math.min(Math.abs(cyDiff) / 10, maxRotSpeed);
-        }
 
-        if(czDiff < 0){
-          camera.position.z += Math.min(Math.abs(czDiff) / 10, maxRotSpeed);
-        }else if(czDiff > 0) {
-          camera.position.z -= Math.min(Math.abs(czDiff) / 10, maxRotSpeed);
+
+    var camRotation = 0;
+    var camSettings = {lookAt: {x:0, y:0, z:0}, offset: {x:10, y:10, z:10}};
+
+    vm.changeCameraAngle = function () {
+      if(camLookAt[vm.selectedTab.id].dontRotate){
+        changeIMacScreen();
+      }else{
+        if(vm.selectedTab.camId < camLookAt[vm.selectedTab.id].position.length - 1){
+          vm.selectedTab.camId++;
+        }else{
+          vm.selectedTab.camId = 0;
         }
       }
+    }
+
+    function rotateCamera() {
+
+      if(!camLookAt[vm.selectedTab.id].dontRotate){
+        camRotation += 0.01;
+      }else{
+        if(camRotation % 1.56 > 0.01){
+          camRotation -= 0.01 + (0.1 * camRotation % 1.56);
+        }
+      }
+      camera.position.y = camSettings.offset.y + camSettings.lookAt.y ;
+      camera.position.x = (Math.sin(camRotation) * camSettings.offset.x) + camSettings.lookAt.x ;
+      camera.position.z = (Math.cos(camRotation) * camSettings.offset.z) + camSettings.lookAt.z  ;
+      camera.lookAt( camSettings.lookAt ); // the origin
+
+    }
+
+    function porcessCamera() {
+      campareVector3(camSettings.offset, camLookAt[vm.selectedTab.id].position[vm.selectedTab.camId], camLookAt[vm.selectedTab.id].zoom);
+      campareVector3(camSettings.lookAt, camLookAt[vm.selectedTab.id].lookAt);
+    }
+
+    function campareVector3(vFrom, vTo, zoom) {
+
+      if(!zoom) zoom = 1;
+      var cxDiff = vFrom.x - (vTo.x * zoom);
+      var cyDiff = vFrom.y - (vTo.y * zoom);
+      var czDiff = vFrom.z - (vTo.z * zoom);
+
+      if(cxDiff < 0){
+        vFrom.x += Math.min(Math.abs(cxDiff) / 10, maxRotSpeed);
+      }else if(cxDiff > 0) {
+        vFrom.x -= Math.min(Math.abs(cxDiff) / 10, maxRotSpeed);
+      }
+
+      if(cyDiff < 0){
+        vFrom.y += Math.min(Math.abs(cyDiff) / 10, maxRotSpeed);
+      }else if(cyDiff > 0) {
+        vFrom.y -= Math.min(Math.abs(cyDiff) / 10, maxRotSpeed);
+      }
+
+      if(czDiff < 0){
+        vFrom.z += Math.min(Math.abs(czDiff) / 10, maxRotSpeed);
+      }else if(czDiff > 0) {
+        vFrom.z -= Math.min(Math.abs(czDiff) / 10, maxRotSpeed);
+      }
+
+    }
+
+    function render() {
+      // world.rotation.y -= 0.010;
+      porcessCamera();
+      rotateCamera();
+
+      if(backprop) backprop.rotation.z += 0.2;
+      if(mainprop) mainprop.rotation.y -= 0.03;
 
       renderer.render(scene, camera);
     }

@@ -1,17 +1,18 @@
 
-<div class="fullH exploreCanvas" id="explore">
+<div class="fullH exploreCanvas"id="explore" >
 </div>
 <div class="exp-progress"><div class="expp-loaded" style="width: {{vm.progress}}%"></div></div>
 <div class="fullH exploreLanding">
+  <div class="el-camTrigger" ng-click="vm.changeCameraAngle()"></div>
   <div class="el-left">
-    <div class="ell-item" ng-class="{'active': vm.selectedTab == 0}" ng-click="vm.selectedTab = 0">HELICOPTER</div>
-    <div class="ell-item" ng-class="{'active': vm.selectedTab == 1}" ng-click="vm.selectedTab = 1">SERVO</div>
-    <div class="ell-item" ng-class="{'active': vm.selectedTab == 2}" ng-click="vm.selectedTab = 2">SOFTWARE</div>
-    <div class="ell-item" ng-class="{'active': vm.selectedTab == 3}" ng-click="vm.selectedTab = 3">PAYLOAD</div>
-    <div class="ell-item" ng-class="{'active': vm.selectedTab == 4}" ng-click="vm.selectedTab = 4">CAMERA</div>
+    <div class="ell-item" ng-class="{'active': vm.selectedTab.id == 0}" ng-click="vm.selectTab(0)">HELICOPTER</div>
+    <div class="ell-item" ng-class="{'active': vm.selectedTab.id == 1}" ng-click="vm.selectTab(1)">SERVO</div>
+    <div class="ell-item" ng-class="{'active': vm.selectedTab.id == 2}" ng-click="vm.selectTab(2)">SOFTWARE</div>
+    <!--<div class="ell-item" ng-class="{'active': vm.selectedTab.id == 3}" ng-click="vm.selectTab(3)">PAYLOAD</div>-->
+    <!--<div class="ell-item" ng-class="{'active': vm.selectedTab.id == 4}" ng-click="vm.selectTab(4)">CAMERA</div>-->
   </div>
 
-  <div class="el-right" ng-if="vm.selectedTab == 0">
+  <div class="el-right" ng-if="vm.selectedTab.id == 0">
     <div class="elr-head">AUTO PILOT</div>
     <div class="elr-cont">
       <div class="elrc-main">
@@ -34,7 +35,7 @@
   </div>
 
 
-  <div class="el-right" ng-if="vm.selectedTab == 1">
+  <div class="el-right" ng-if="vm.selectedTab.id == 1">
     <div class="elr-head">SERVO</div>
     <div class="elr-cont">
       <div class="elrc-main">
@@ -58,7 +59,7 @@
     </div>
   </div>
 
-  <div class="el-right" ng-if="vm.selectedTab == 2">
+  <div class="el-right" ng-if="vm.selectedTab.id == 2">
     <div class="elr-head">SOFTWARE</div>
     <div class="elr-cont">
       <div class="elrc-main">
@@ -79,7 +80,7 @@
     </div>
   </div>
 
-<div class="el-right" ng-if="vm.selectedTab == 3">
+<div class="el-right" ng-if="vm.selectedTab.id == 3">
   <div class="elr-head">PAYLOAD</div>
   <div class="elr-cont">
     <!--Autonomous Helicopter-->
@@ -95,7 +96,7 @@
   </div>
 </div>
 
-  <div class="el-right" ng-if="vm.selectedTab == 4">
+  <div class="el-right" ng-if="vm.selectedTab.id == 4">
     <div class="elr-head">CAMERA</div>
     <div class="elr-cont">
       <!--Autonomous Helicopter-->
