@@ -260,7 +260,7 @@
     <![endif]-->
 
     <div class="header" ng-controller="HeaderCtrl as vm">
-      <!--<div class="logo">ROTAVIO<span>LABS</span></div>-->
+      <div class="logo" ui-sref="home"><img src="images/logo/logo.png"></div>
       <ul>
         <li ng-class="{'active': vm.state.current.name == 'home'}" ui-sref="home">ROTAVIO</li>
         <li ng-class="{'active': vm.state.current.name == 'explore'}" ui-sref="explore">EXPLORE</li>
