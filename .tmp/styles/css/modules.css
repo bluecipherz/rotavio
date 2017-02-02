@@ -1100,6 +1100,8 @@
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
     /* IE6-9 */ }
+  .exploreLanding .el-right:after {
+    height: 120px; }
   .exploreLanding .el-right:before {
     bottom: 0;
     top: auto;
