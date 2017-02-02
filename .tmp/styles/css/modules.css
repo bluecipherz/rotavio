@@ -713,7 +713,7 @@
 .hmt1-head2 {
   width: 100%;
   line-height: 100%;
-  padding-left: 200px;
+  padding-left: 80px;
   float: left; }
 
 .hmt1-head1 {
@@ -728,7 +728,7 @@
   font-size: 170%;
   line-height: 160%;
   padding: 0;
-  margin-left: 200px;
+  margin-left: 80px;
   width: auto;
   font-family: g-b;
   margin-top: 120px;
@@ -756,7 +756,7 @@
   height: 50px;
   line-height: 46px;
   text-align: center;
-  margin: 30px 200px;
+  margin: 30px 80px;
   float: left;
   border: 2px solid #fff;
   clear: both;
