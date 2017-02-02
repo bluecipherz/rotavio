@@ -120,6 +120,9 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
 
   }
+  .el-right:after{
+    height: 120px;
+  }
   .el-right:before{
     bottom: 0;
     top: auto;
