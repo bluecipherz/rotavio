@@ -1,135 +1,207 @@
 <div class="fullH exploreCanvas" id="explore" xmlns="http://www.w3.org/1999/html">
 </div>
-<div class="exp-progress"><div class="expp-loaded" style="width: {{vm.progress}}%"></div></div>
-<div class="fullH exploreLanding">
-  <div class="el-camTrigger" ng-click="vm.changeCameraAngle()"></div>
-  <div class="el-left">
-    <div class="ell-item" ng-class="{'active': vm.selectedTab.id == 0}" ng-click="vm.selectTab(0)">HELICOPTER</div>
-    <div class="ell-item" ng-class="{'active': vm.selectedTab.id == 1}" ng-click="vm.selectTab(1)">SERVO</div>
-    <div class="ell-item" ng-class="{'active': vm.selectedTab.id == 2}" ng-click="vm.selectTab(2)">SOFTWARE</div>
-    <!--<div class="ell-item" ng-class="{'active': vm.selectedTab.id == 3}" ng-click="vm.selectTab(3)">PAYLOAD</div>-->
-    <!--<div class="ell-item" ng-class="{'active': vm.selectedTab.id == 4}" ng-click="vm.selectTab(4)">CAMERA</div>-->
-  </div>
-
-  <div class="el-right" ng-if="vm.selectedTab.id == 0">
-    <div class="elr-head">Autonomous Helicopter</div>
-    <div class="elr-cont">
-      <div class="elrc-main">
-        Our autonomous helicopter, Ankush, performs completely programmed autonomous mission. An electric and a gasoline version of the helicopter are under development.
-      </div>
-
-      <table>
-        <tr><td>Max. takeoff weight:</td><td>11kg</td></tr>
-        <tr><td>Useful Payload:</td><td>1.5kg</td></tr>
-        <tr><td>Endurance:</td><td>40 min with Lithium Polymer battery,</td></tr>
-        <tr><td>Endurance:</td><td>1.5 hrs with petrol (under development)</td></tr>
-        <tr><td>Rotor diameter</td><td>1.7m</td></tr>
-      </table>
-      </br>
-      <span class="elrc-heading">Applications</span>
-      <p>
-        <br>Our autonomous mini-helicopter, <bold>Ankush</bold>, performs completely programmed autonomous mission. Development of fully electric version of the helicopter is complete. A gasoline version of the helicopter with the same specifications and capacity in under development. The team has full capability to manufacture the complete helicopter frame and scale up the size for higher payloads and endurance.</br>
-        <br>This platform is useful for Aerial Surveying, Radiation Mapping, Inspection, Aerial Photography, Air quality monitoring, Forest monitoring, Transport of emergency first aid kits to remote and inaccessible areas, Mine detection using slung payloads. These applications and Use cases can be executed when used with a suitable combination of sensors.</br>
-        <br>
-      </p>
-    </div>
-  </div>
-
-
-  <div class="el-right" ng-if="vm.selectedTab.id == 1">
-    <div class="elr-head">SERVO</div>
-    <div class="elr-cont">
-      <div class="elrc-main">
-        Servo-actuators cater to applications requiring precise position hold (including UAVs). We have developed a compact, high quality, efficient servo prototype for use in radio control and small-scale robotics
-      </div>
-
-      <table>
-        <tr><td>Servo Model </td><td>Ankush CV-1R</td></tr>
-        <tr><td>Dimensions of servo </td><td>40x20x40mm </td></tr>
-        <tr><td>Weight </td><td>63g </td></tr>
-        <tr><td>Torque </td><td>5 kgcm @ 5v </td></tr>
-        <tr><td>Make </td><td> Aluminum body with metal gears giving high durability and ruggedness </td></tr>
-        <tr><td>Motor </td><td>Coreless </td></tr>
-        <tr><td>Applications </td><td>RC helicopters, RC aircrafts, Robotics </td></tr>
-      </table>
-      <p>
-        </br>
-        We have the capability to customize the servo as per requirements. Contact us (add a hyperlink to the contact us page here) to discuss your requirements.
-
-      </p>
-    </div>
-  </div>
-
-  <div class="el-right" ng-if="vm.selectedTab.id == 2">
-    <div class="elr-head">SOFTWARE</div>
-    <div class="elr-cont">
-      <div class="elrc-main">
-        Helicopters require sophisticated simulation models for analysis. Rotavio Labs is actively developing various simulation models that are useful for helicopter design and analysis. Contact us to consult for helicopter design and analysis
-      </div>
-      <div class="elrc-heading">RLDyn</div>
-      <P>
-        The main source of vibration for a helicopter is its Main Rotor. RLDyn is a structural dynamic analysis program for rotor blades. It helps understand the blade properties and design it for minimum vibrations.
-      </P>
-      <div class="elrc-heading">RLCar</div>
-      <p>
-        RLCar is a  comprehensive aeroelastic and flight dynamics simulation program that will be useful to solve helicopters general maneuver problem. It predicts rotor craft loads by solving highly nonlinear aeroelastic responses. RLCar is useful in calculating rotorcraft performance, trim, blade motion & airloading, structural loads, vibration, noise, aeroelastic stability, and flight dynamics.
-      </p>
-      <div class="elrc-heading">RLCon (under development)</div>
-      <p>
-        RLCon is a Helicopter Control systems simulation software. The software uses an in-house developed model of the helicopter as plant. It is used to observe the closed loop position hold performance by gain tuning in software. This helps reduce the time required for gain tuning in actual flight of the helicopter
-      </p>
-    </div>
-  </div>
-
-<div class="el-right" ng-if="vm.selectedTab.id == 3">
-  <div class="elr-head">PAYLOAD</div>
-  <div class="elr-cont">
-    <!--Autonomous Helicopter-->
-
-    Our autonomous helicopter, Ankush, performs completely programmed autonomous mission. An electric and a gasoline version of the helicopter are under development.
-    </br></br>Application: This platform is useful for aerial surveying, radiation mapping, inspection, aerial photography, air quality monitoring, forest monitoring, emergency first aid kits transport to remote / inaccessible areas, mine detection using slung payloads, etc when suitable sensors are used.
-    </br></br>Max. takeoff Weight: 11kg
-    </br>Useful payload: 1.5kg
-
-
-    </br></br>We have the capability to manufacture the complete helicopter frame, scale up the size of the helicopter for higher payloads / endurance. Contact us (add a hyperlink to the contact us page here)  to discuss your requirements.
-
-  </div>
+<div class="exp-progress">
+    <div class="expp-loaded" style="width: {{vm.progress}}%"></div>
 </div>
-
-  <div class="el-right" ng-if="vm.selectedTab.id == 4">
-    <div class="elr-head">CAMERA</div>
-    <div class="elr-cont">
-      <!--Autonomous Helicopter-->
-
-      Our autonomous helicopter, Ankush, performs completely programmed autonomous mission. An electric and a gasoline version of the helicopter are under development.
-
-      </br></br>Application: This platform is useful for aerial surveying, radiation mapping, inspection, aerial photography, air quality monitoring, forest monitoring, emergency first aid kits transport to remote / inaccessible areas, mine detection using slung payloads, etc when suitable sensors are used.
-
-      </br></br>We have the capability to manufacture the complete helicopter frame, scale up the size of the helicopter for higher payloads / endurance. Contact us (add a hyperlink to the contact us page here)  to discuss your requirements.
-
+<div class="fullH exploreLanding">
+    <div class="el-camTrigger" ng-click="vm.changeCameraAngle()"></div>
+    <div class="el-left">
+        <div class="ell-item" ng-class="{'active': vm.selectedTab.id == 0}" ng-click="vm.selectTab(0)">HELICOPTER</div>
+        <div class="ell-item" ng-class="{'active': vm.selectedTab.id == 1}" ng-click="vm.selectTab(1)">SERVO</div>
+        <div class="ell-item" ng-class="{'active': vm.selectedTab.id == 2}" ng-click="vm.selectTab(2)">SOFTWARE</div>
+        <!--<div class="ell-item" ng-class="{'active': vm.selectedTab.id == 3}" ng-click="vm.selectTab(3)">PAYLOAD</div>-->
+        <!--<div class="ell-item" ng-class="{'active': vm.selectedTab.id == 4}" ng-click="vm.selectTab(4)">CAMERA</div>-->
     </div>
-  </div>
+
+    <div class="el-right" ng-if="vm.selectedTab.id == 0">
+        <div class="elr-head">Ankush</div>
+        <div class="elr-cont">
+            <div class="elrc-main">
+                Ankush performs programmed autonomous missions with flare and accuracy.
+                An electric version of Anukush has already been developed and is in its final stage of flight testing.
+                The gasoline version of the Ankush with twice the endurance is currently under development.
+            </div>
+
+            <table>
+                <tr>
+                    <td>Maximum takeoff weight:</td>
+                    <td>11kg</td>
+                </tr>
+                <tr>
+                    <td>Useful Payload:</td>
+                    <td>1.5kg</td>
+                </tr>
+                <tr>
+                    <td>Endurance:</td>
+                    <td>40 min with Lithium Polymer battery,</td>
+                </tr>
+                <tr>
+                    <td>Endurance:</td>
+                    <td>1.5 hrs with petrol (under development)</td>
+                </tr>
+                <tr>
+                    <td>Rotor diameter:</td>
+                    <td>1.7m</td>
+                </tr>
+            </table>
+            </br>
+            <span class="elrc-heading">Applications</span>
+            <p>
+                <br>The Ankush platform is tailor made for Aerial Surveying, Industrial Inspection,
+                City Planning, Aerial Photography, Air Quality Monitoring, Forest Surveillance, Transport of emergency
+                goods.
+                These applications and Use cases can be executed when used with a suitable combination of sensors.
+                <br><br>The Rotavio Labs team of great engineers have the full capability to manufacture the complete
+                helicopter and
+                integrate it with a variety of mounts and sensors for a wide range of use cases.
+            </p>
+        </div>
+    </div>
+
+
+    <div class="el-right" ng-if="vm.selectedTab.id == 1">
+        <div class="elr-head">Servo CV-1R</div>
+        <div class="elr-cont">
+            <div class="elrc-main">
+                Servo actuators cater to applications requiring precise position hold especially.
+                This is one of the most common requirements for Aerial vehicles.
+                Rotavio Labs has developed a compact, high quality, efficient servo for use in Radio control, Aerospace
+                and high precision robotics.
+            </div>
+
+            <table>
+                <tr>
+                    <td>Model:</td>
+                    <td>CV-1R</td>
+                </tr>
+                <tr>
+                    <td>Dimensions:</td>
+                    <td>40x20x40mm</td>
+                </tr>
+                <tr>
+                    <td>Torque:</td>
+                    <td>5 kgcm @ 5v</td>
+                </tr>
+                <tr>
+                    <td>Weight:</td>
+                    <td>63g</td>
+                </tr>
+                <tr>
+                    <td>Motor:</td>
+                    <td>Coreless</td>
+                </tr>
+                <tr>
+                    <td>Make:</td>
+                    <td>Smooth Aluminum body with metal gears for high precision, durability and ruggedness</td>
+                </tr>
+            </table>
+            </br>
+
+            <span class="elrc-heading">Applications</span>
+            <p>
+                </br>
+                Helicopters, Aircrafts, High precision Robotics. Rotavio Labs has the capability to design, manufacture and customize the servo as per customer's
+                requirements.
+                Contact us at rotavio.labs@gmail.com to discuss your requirements.
+            </p>
+        </div>
+    </div>
+
+    <div class="el-right" ng-if="vm.selectedTab.id == 2">
+        <div class="elr-head">Helicopter Dynamics Simulation and Analysis software suite</div>
+        <div class="elr-cont">
+            <div class="elrc-main">
+                Helicopters require sophisticated simulation models for analysis.
+                Rotavio Labs has developed a comprehensive Simulation and Analysis software suite to help design state of the art
+                Helicopters with varying requirements of Payload and Endurance.
+                Rotavio Labs is also actively developing various simulation models that are useful for helicopter design and analysis.
+            </div>
+            <div class="elrc-heading">RLDyn</div>
+            <P>
+                RLDyn is a structural dynamic analysis software for rotor blades.
+                The main source of vibration for a helicopter is its Main Rotor.
+                It helps understand the blade properties and design it for minimum vibrations.
+                To reduce structural dynamic vibrations - an in depth understanding of vibrations emanating
+                from main rotor and fuselage response to these vibratory loads is necessary.
+                RLDyn will be helpful in evaluating mode shapes and natural frequencies of a composite rotor blade
+                with advanced blade geometry.
+            </P>
+            <div class="elrc-heading">RLCar</div>
+            <p>
+                RLCar is a  comprehensive aeroelastic and flight dynamics simulation program that will be useful to solve
+                helicopters general maneuver problem. It predicts rotorcraft loads by solving highly nonlinear aeroelastic responses.
+                RLCar is useful in calculating rotorcraft performance, trim, blade motion & air-loading, structural loads,
+                vibration, noise, aeroelastic stability and flight dynamics.
+            </p>
+            <div class="elrc-heading">RLCon (under development)</div>
+            <p>
+                RLCon is a Helicopter Control systems simulation software.
+                The software uses an in-house developed model of the helicopter as plant.
+                It is used to observe the closed loop position hold performance by gain tuning in software.
+                This helps reduce the time required for gain tuning in actual flight of the helicopter.
+            </p>
+        </div>
+    </div>
+
+    <div class="el-right" ng-if="vm.selectedTab.id == 3">
+        <div class="elr-head">PAYLOAD</div>
+        <div class="elr-cont">
+            <!--Autonomous Helicopter-->
+
+            Our autonomous helicopter, Ankush, performs completely programmed autonomous mission. An electric and a
+            gasoline version of the helicopter are under development.
+            </br></br>Application: This platform is useful for aerial surveying, radiation mapping, inspection, aerial
+            photography, air quality monitoring, forest monitoring, emergency first aid kits transport to remote /
+            inaccessible areas, mine detection using slung payloads, etc when suitable sensors are used.
+            </br></br>Max. takeoff Weight: 11kg
+            </br>Useful payload: 1.5kg
+
+
+            </br></br>We have the capability to manufacture the complete helicopter frame, scale up the size of the
+            helicopter for higher payloads / endurance. Contact us (add a hyperlink to the contact us page here) to
+            discuss your requirements.
+
+        </div>
+    </div>
+
+    <div class="el-right" ng-if="vm.selectedTab.id == 4">
+        <div class="elr-head">CAMERA</div>
+        <div class="elr-cont">
+            <!--Autonomous Helicopter-->
+
+            Our autonomous helicopter, Ankush, performs completely programmed autonomous mission. An electric and a
+            gasoline version of the helicopter are under development.
+
+            </br></br>Application: This platform is useful for aerial surveying, radiation mapping, inspection, aerial
+            photography, air quality monitoring, forest monitoring, emergency first aid kits transport to remote /
+            inaccessible areas, mine detection using slung payloads, etc when suitable sensors are used.
+
+            </br></br>We have the capability to manufacture the complete helicopter frame, scale up the size of the
+            helicopter for higher payloads / endurance. Contact us (add a hyperlink to the contact us page here) to
+            discuss your requirements.
+
+        </div>
+    </div>
 </div>
 <!--<div class="fullH exploreL2">-->
-  <!--<div class="el-left">-->
-  <!--</div>-->
+<!--<div class="el-left">-->
+<!--</div>-->
 
 <!--</div>-->
 <!--<div class="footer-bottom">-->
-  <!--<div class="foo-left">-->
-    <!--<div class="fool-head" style="color: #FFF!important;;">Lets Talk</div>-->
-    <!--<div class="fool-subhead">Feel free to say Hello!</div>-->
-    <!--<form>-->
-      <!--<input type="text" placeholder="Name">-->
-      <!--<input type="text" placeholder="Email">-->
-      <!--<textarea placeholder="Message"></textarea>-->
-      <!--<input type="button" value="SUBMIT">-->
-    <!--</form>-->
-  <!--</div>-->
-  <!--<div class="foo-right">-->
-    <!--<a class="foor-foot">D & D By Blueciphers</a>-->
-    <!--<div class="foor-head">ROTAVIO LABS</div>-->
-    <!--<div class="foor-cont">ROTAVIO LABS <span>&copy</span> ALL RIGHTS RESERVED 2016</div>-->
-  <!--</div>-->
+<!--<div class="foo-left">-->
+<!--<div class="fool-head" style="color: #FFF!important;;">Lets Talk</div>-->
+<!--<div class="fool-subhead">Feel free to say Hello!</div>-->
+<!--<form>-->
+<!--<input type="text" placeholder="Name">-->
+<!--<input type="text" placeholder="Email">-->
+<!--<textarea placeholder="Message"></textarea>-->
+<!--<input type="button" value="SUBMIT">-->
+<!--</form>-->
+<!--</div>-->
+<!--<div class="foo-right">-->
+<!--<a class="foor-foot">D & D By Blueciphers</a>-->
+<!--<div class="foor-head">ROTAVIO LABS</div>-->
+<!--<div class="foor-cont">ROTAVIO LABS <span>&copy</span> ALL RIGHTS RESERVED 2016</div>-->
+<!--</div>-->
 <!--</div>-->

@@ -53,7 +53,7 @@ angular.module('BczUiApp')
         vm.items = [
             {
                 id: 0, name: 'Bhamidimarri Bharati Swaroop', img: 'images/wwa/team/swaroop.jpg',
-                domain: 'Founder, CEO & Head Helicopter Development',
+                domain: 'Founder, CEO and Head Helicopter Design & Development',
                 details: [
                     'M.Tech, Aerospace Engineering, IIT Kanpur (2012)',
                     'Expertise in Helicopter Controls and Avionics'
@@ -61,7 +61,7 @@ angular.module('BczUiApp')
             },
             {
                 id: 1, name: 'Vishnu Prasad', img: 'images/wwa/team/vishnu.jpg',
-                domain: 'Co-founder, CFO & Head Servo Design & Development',
+                domain: 'Co-founder, CFO and Head Servo Design & Development',
                 details: [
                     'M.Tech, Aerospace Engineering, IIT Kanpur (2011)',
                     'Expertise in Servo Design & Avionics'
@@ -121,7 +121,7 @@ angular.module('BczUiApp')
             },
             {
                 id: 9, name: 'Prof C. Venkatesan', img: 'images/wwa/team/venkatesan.jpg',
-                domain: 'Advisor, Helicoper Technology & Design',
+                domain: 'Advisor, Helicoper Technology',
                 details: [
                     'Former Head, Dept of Aerospace Engineering, IIT Kanpur',
                     'Fellow, Indian National Academy of Engineering',
