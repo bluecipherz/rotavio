@@ -36,13 +36,13 @@
 .wwa-al-left {
   width: 40vw;
   margin-left: 8vw;
-  margin-top: 25vh;
+  margin-top: 32vh;
   overflow: hidden;
   position: relative; }
   .wwa-al-left img {
     position: absolute;
     left: 0;
-    height: 100%; }
+    width: 100%; }
 
 .wwa-al-right {
   width: 40vw;
@@ -259,7 +259,7 @@
     font-family: g-m;
     font-size: 250%;
     color: #34495e;
-    margin-top: 30px; }
+    margin-top: -20px; }
   .wwai-data .wwaid-head {
     font-size: 130%;
     color: #555;

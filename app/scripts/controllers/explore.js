@@ -372,7 +372,7 @@ angular.module('BczUiApp')
       if(!camLookAt[vm.selectedTab.id].dontRotate){
         camRotation += 0.01;
       }else{
-        if(camRotation % 1.56 > 0.01){
+        if(camRotation % 6.28319 > 0.01){
           camRotation -= 0.01 + (0.1 * camRotation % 1.56);
         }
       }
