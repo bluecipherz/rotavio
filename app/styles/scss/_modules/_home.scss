@@ -2,6 +2,41 @@
 $contentLeft : 80px;
 
 
+.header.NormalHomeHeader{
+  ul {
+    li {
+      color: #fff;
+    }
+  }
+}
+.header.homeHeader{
+  img{
+    width: 100px!important;
+    padding-top: 0 !important;
+  }
+  .headerBG {
+    top:0;
+  }
+  ul {
+    li {
+      color: #555;
+    }
+  }
+}
+.header.exploreHeader{
+  .headerBG {
+    top:-70px;
+  }
+  img{
+    width: 100px!important;
+    padding-top: 0 !important;
+  }
+  ul {
+    li {
+      color: #555;
+    }
+  }
+}
 .header{
   width: 100%;
   height: 50px;
@@ -9,6 +44,16 @@ $contentLeft : 80px;
   left: 0;
   top:0;
   z-index: 9999999;
+  .headerBG{
+    width: 100%;
+    height: 60px;
+    top: -80px;
+    position: absolute;
+    z-index: -1;
+    background: #fff;
+    @include shadowNew(0 0 10px rgba(0,0,0,0.1));
+    @include transition(0.5s);
+  }
   .logo{
     font-family: r-b;
     float: left;
@@ -19,6 +64,7 @@ $contentLeft : 80px;
     img{
       width: 150px;
       padding-top:15px;
+      @include transition(0.5s);
     }
     span{
       font-family: r-m;

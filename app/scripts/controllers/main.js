@@ -19,7 +19,10 @@ angular.module('BczUiApp')
 
     })
     .controller('MainCtrl', function (paraService) {
-        // $(window).scrollTop(1);
+        $(window).scrollTop(1);
+
+        var windowHeight = $(window).height();
+        // var header = $('#header');
 
 
         paraService.addPara('home', 'hm-building', { id:'#hm-building',
@@ -30,9 +33,24 @@ angular.module('BczUiApp')
             }
         })
 
+
+        paraService.addPara('home', 'hm-header', { id:'#hmt1-svgBg',
+            callback:function (element) {
+                if(element.progressPX - 200 - windowHeight > 0){
+                    console.log('homeHeader')
+                    $('#header').removeClass('NormalHomeHeader');
+                    $('#header').addClass('homeHeader');
+                }else{
+                    console.log('normalHeader')
+                    $('#header').addClass('NormalHomeHeader');
+                    $('#header').removeClass('homeHeader');
+                }
+            }
+        })
+
         paraService.addPara('home', 'hmt3-img', { id:'#hmt3-img',
             callback:function (element) {
-                var tempWidth = ((element.scrollTop / 2.8) / $(window).height()) * 20;
+                var tempWidth = ((element.scrollTop / 2.8) / windowHeight) * 20;
                 element.el.css({
                     'width': (100 + tempWidth )+ 'vw',
                     'left' :(-1 * tempWidth / 2) + 'vw',

@@ -1,45 +1,43 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/angularjs-slider/dist/rzslider.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
-    <!-- <link rel="stylesheet" href="bower_components/angular-dp/angular-dp.css" /> -->
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/angularjs-slider/dist/rzslider.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+  <!-- <link rel="stylesheet" href="bower_components/angular-dp/angular-dp.css" /> -->
 
-    <link rel="stylesheet" href="styles/css/Bluegrid/Bluegrid.css">
-    <link rel="stylesheet" href="styles/css/base.css">
-    <link rel="stylesheet" href="styles/css/modules.css">
-    <!-- <link rel="stylesheet" href="styles/css/font-awesome.min.css"> -->
-    <!-- endbuild -->
+  <link rel="stylesheet" href="styles/css/Bluegrid/Bluegrid.css">
+  <link rel="stylesheet" href="styles/css/base.css">
+  <link rel="stylesheet" href="styles/css/modules.css">
+  <!-- <link rel="stylesheet" href="styles/css/font-awesome.min.css"> -->
+  <!-- endbuild -->
 
-    <style>
-      .landingLoader{
-        position: fixed;
-        top:0;
-        left:0;
-        right:0;
-        bottom: 0;
-        background: #111;
-        z-index: 1000000;
-      }
+  <style>
+    .landingLoader{
+      position: fixed;
+      top:0;
+      left:0;
+      right:0;
+      bottom: 0;
+      background: #111;
+      z-index: 1000000;
+    }
 
-      ::-webkit-scrollbar              { width: 12px; background: #111; }
-      ::-webkit-scrollbar-button       { opacity: 0; }
-      ::-webkit-scrollbar-track        { opacity: 0; }
-      ::-webkit-scrollbar-track-piece  { opacity: 0; }
-      ::-webkit-scrollbar-thumb        { background: rgba(255,255,255,0.4) }
-      ::-webkit-scrollbar-corner       {  opacity: 0;}
-      ::-webkit-resizer                {  opacity: 0; }
-
-
+    ::-webkit-scrollbar              { width: 12px; background: #111; }
+    ::-webkit-scrollbar-button       { opacity: 0; }
+    ::-webkit-scrollbar-track        { opacity: 0; }
+    ::-webkit-scrollbar-track-piece  { opacity: 0; }
+    ::-webkit-scrollbar-thumb        { background: rgba(255,255,255,0.4) }
+    ::-webkit-scrollbar-corner       {  opacity: 0;}
+    ::-webkit-resizer                {  opacity: 0; }
 
 
 
@@ -49,277 +47,286 @@
 
 
 
-      *, *:before, *:after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      *:before, *:after {
-        content: "";
-      }
-
-      .sphere {
-        -webkit-transform: rotateY(45deg);
-        transform: rotateY(45deg);
-      }
-      .sphere, .sphere *, .sphere *:before, .sphere *:after {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        margin: auto;
-        -webkit-transform-style: preserve-3d;
-        transform-style: preserve-3d;
-      }
-
-      .ring {
-        width: 15em;
-        height: 15em;
-        border-radius: 50%;
-      }
-      .ring:before {
-        border-width: 3px;
-        border-style: solid;
-        /*background: #80baff;*/
-        border-color: #3799ff #3b86ff transparent transparent;
-        border-radius: 50%;
-      }
-      .ring:nth-child(1) {
-        -webkit-transform: translateZ(-7.5em) scale(0);
-        transform: translateZ(-7.5em) scale(0);
-      }
-      .ring:nth-child(1):before {
-        -webkit-animation: ring 2s -0s linear infinite;
-        animation: ring 2s -0s linear infinite;
-      }
-      .ring:nth-child(2) {
-        -webkit-transform: translateZ(-7.35589em) scale(0.19509);
-        transform: translateZ(-7.35589em) scale(0.19509);
-      }
-      .ring:nth-child(2):before {
-        -webkit-animation: ring 2s -0.125s linear infinite;
-        animation: ring 2s -0.125s linear infinite;
-      }
-      .ring:nth-child(3) {
-        -webkit-transform: translateZ(-6.9291em) scale(0.38268);
-        transform: translateZ(-6.9291em) scale(0.38268);
-      }
-      .ring:nth-child(3):before {
-        -webkit-animation: ring 2s -0.25s linear infinite;
-        animation: ring 2s -0.25s linear infinite;
-      }
-      .ring:nth-child(4) {
-        -webkit-transform: translateZ(-6.23602em) scale(0.55557);
-        transform: translateZ(-6.23602em) scale(0.55557);
-      }
-      .ring:nth-child(4):before {
-        -webkit-animation: ring 2s -0.375s linear infinite;
-        animation: ring 2s -0.375s linear infinite;
-      }
-      .ring:nth-child(5) {
-        -webkit-transform: translateZ(-5.3033em) scale(0.70711);
-        transform: translateZ(-5.3033em) scale(0.70711);
-      }
-      .ring:nth-child(5):before {
-        -webkit-animation: ring 2s -0.5s linear infinite;
-        animation: ring 2s -0.5s linear infinite;
-      }
-      .ring:nth-child(6) {
-        -webkit-transform: translateZ(-4.16678em) scale(0.83147);
-        transform: translateZ(-4.16678em) scale(0.83147);
-      }
-      .ring:nth-child(6):before {
-        -webkit-animation: ring 2s -0.625s linear infinite;
-        animation: ring 2s -0.625s linear infinite;
-      }
-      .ring:nth-child(7) {
-        -webkit-transform: translateZ(-2.87013em) scale(0.92388);
-        transform: translateZ(-2.87013em) scale(0.92388);
-      }
-      .ring:nth-child(7):before {
-        -webkit-animation: ring 2s -0.75s linear infinite;
-        animation: ring 2s -0.75s linear infinite;
-      }
-      .ring:nth-child(8) {
-        -webkit-transform: translateZ(-1.46318em) scale(0.98079);
-        transform: translateZ(-1.46318em) scale(0.98079);
-      }
-      .ring:nth-child(8):before {
-        -webkit-animation: ring 2s -0.875s linear infinite;
-        animation: ring 2s -0.875s linear infinite;
-      }
-      .ring:nth-child(9) {
-        -webkit-transform: translateZ(0em) scale(1);
-        transform: translateZ(0em) scale(1);
-      }
-      .ring:nth-child(9):before {
-        -webkit-animation: ring 2s -1s linear infinite;
-        animation: ring 2s -1s linear infinite;
-      }
-      .ring:nth-child(10) {
-        -webkit-transform: translateZ(1.46318em) scale(0.98079);
-        transform: translateZ(1.46318em) scale(0.98079);
-      }
-      .ring:nth-child(10):before {
-        -webkit-animation: ring 2s -1.125s linear infinite;
-        animation: ring 2s -1.125s linear infinite;
-      }
-      .ring:nth-child(11) {
-        -webkit-transform: translateZ(2.87013em) scale(0.92388);
-        transform: translateZ(2.87013em) scale(0.92388);
-      }
-      .ring:nth-child(11):before {
-        -webkit-animation: ring 2s -1.25s linear infinite;
-        animation: ring 2s -1.25s linear infinite;
-      }
-      .ring:nth-child(12) {
-        -webkit-transform: translateZ(4.16678em) scale(0.83147);
-        transform: translateZ(4.16678em) scale(0.83147);
-      }
-      .ring:nth-child(12):before {
-        -webkit-animation: ring 2s -1.375s linear infinite;
-        animation: ring 2s -1.375s linear infinite;
-      }
-      .ring:nth-child(13) {
-        -webkit-transform: translateZ(5.3033em) scale(0.70711);
-        transform: translateZ(5.3033em) scale(0.70711);
-      }
-      .ring:nth-child(13):before {
-        -webkit-animation: ring 2s -1.5s linear infinite;
-        animation: ring 2s -1.5s linear infinite;
-      }
-      .ring:nth-child(14) {
-        -webkit-transform: translateZ(6.23602em) scale(0.55557);
-        transform: translateZ(6.23602em) scale(0.55557);
-      }
-      .ring:nth-child(14):before {
-        -webkit-animation: ring 2s -1.625s linear infinite;
-        animation: ring 2s -1.625s linear infinite;
-      }
-      .ring:nth-child(15) {
-        -webkit-transform: translateZ(6.9291em) scale(0.38268);
-        transform: translateZ(6.9291em) scale(0.38268);
-      }
-      .ring:nth-child(15):before {
-        -webkit-animation: ring 2s -1.75s linear infinite;
-        animation: ring 2s -1.75s linear infinite;
-      }
-      .ring:nth-child(16) {
-        -webkit-transform: translateZ(7.35589em) scale(0.19509);
-        transform: translateZ(7.35589em) scale(0.19509);
-      }
-      .ring:nth-child(16):before {
-        -webkit-animation: ring 2s -1.875s linear infinite;
-        animation: ring 2s -1.875s linear infinite;
-      }
-      @-webkit-keyframes ring {
-        100% {
-          -webkit-transform: rotateZ(360deg);
-          transform: rotateZ(360deg);
-        }
-      }
-      @keyframes ring {
-        100% {
-          -webkit-transform: rotateZ(360deg);
-          transform: rotateZ(360deg);
-        }
-      }
 
 
+    *, *:before, *:after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    *:before, *:after {
+      content: "";
+    }
 
-    </style>
-  </head>
-  <!--<audio autoplay="autoplay" loop>-->
-    <!--<source src="images/bgmusic2.mp3" type="audio/mp3">-->
-  <!--</audio>-->
-  <body ng-app="BczUiApp">
-  <!--<div class="landingLoader" id="landingLoader">-->
-    <!--<div class='sphere'>-->
-      <!--<div class='ring'></div>-->
-      <!--<div class='ring'></div>-->
-      <!--<div class='ring'></div>-->
-      <!--<div class='ring'></div>-->
-      <!--<div class='ring'></div>-->
-      <!--<div class='ring'></div>-->
-      <!--<div class='ring'></div>-->
-      <!--<div class='ring'></div>-->
-      <!--<div class='ring'></div>-->
-      <!--<div class='ring'></div>-->
-      <!--<div class='ring'></div>-->
-      <!--<div class='ring'></div>-->
-      <!--<div class='ring'></div>-->
-      <!--<div class='ring'></div>-->
-      <!--<div class='ring'></div>-->
-      <!--<div class='ring'></div>-->
-    <!--</div>-->
-  <!--</div>-->
-    <title>Rotavio Labs</title>
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+    .sphere {
+      -webkit-transform: rotateY(45deg);
+      transform: rotateY(45deg);
+    }
+    .sphere, .sphere *, .sphere *:before, .sphere *:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+    }
 
-    <div class="header" ng-controller="HeaderCtrl as vm">
-      <div class="logo" ui-sref="home"><img src="images/logo/logo.png"></div>
-      <ul>
-        <li ng-class="{'active': vm.state.current.name == 'home'}" ui-sref="home">ROTAVIO</li>
-        <li ng-class="{'active': vm.state.current.name == 'explore'}" ui-sref="explore">EXPLORE</li>
-        <li ng-class="{'active': vm.state.current.name == 'whoweare'}" ui-sref="whoweare">WHO WE ARE</li>
-        <!--<li>REACH US</li>-->
-      </ul>
-    </div>
-
-    <!-- Add your site or application content here -->
-    <div class="viewPort" ui-view></div>
-
-    <div id="backgroundAnim" class="backgroundAnim"></div>
-
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <!-- <script src="bower_components/jquery/dist/scrollspeed.js"></script> -->
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/angularjs-slider/dist/rzslider.js"></script>
-    <script src="bower_components/angular-svg-round-progressbar/build/roundProgress.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- <script src="bower_components/angular-dp/angular-dp.js"></script> -->
-    <script src="scripts/plugins/satellizer/satellizer.js"></script>
-    <script src="scripts/plugins/ToxicBlue/ToxicBlue.js"></script>
-
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/services/tokenHandler.js"></script>
-        <script src="scripts/services/feedFactory.js"></script>
-        <script src="scripts/services/loginService.js"></script>
-        <script src="scripts/controllers/whoweare.js"></script>
-        <script src="scripts/controllers/demo.js"></script>
-        <script src="scripts/controllers/explore.js"></script>
-        <script src="scripts/services/paraService.js"></script>
-        <!-- endbuild -->
+    .ring {
+      width: 15em;
+      height: 15em;
+      border-radius: 50%;
+    }
+    .ring:before {
+      border-width: 3px;
+      border-style: solid;
+      /*background: #80baff;*/
+      border-color: #3799ff #3b86ff transparent transparent;
+      border-radius: 50%;
+    }
+    .ring:nth-child(1) {
+      -webkit-transform: translateZ(-7.5em) scale(0);
+      transform: translateZ(-7.5em) scale(0);
+    }
+    .ring:nth-child(1):before {
+      -webkit-animation: ring 2s -0s linear infinite;
+      animation: ring 2s -0s linear infinite;
+    }
+    .ring:nth-child(2) {
+      -webkit-transform: translateZ(-7.35589em) scale(0.19509);
+      transform: translateZ(-7.35589em) scale(0.19509);
+    }
+    .ring:nth-child(2):before {
+      -webkit-animation: ring 2s -0.125s linear infinite;
+      animation: ring 2s -0.125s linear infinite;
+    }
+    .ring:nth-child(3) {
+      -webkit-transform: translateZ(-6.9291em) scale(0.38268);
+      transform: translateZ(-6.9291em) scale(0.38268);
+    }
+    .ring:nth-child(3):before {
+      -webkit-animation: ring 2s -0.25s linear infinite;
+      animation: ring 2s -0.25s linear infinite;
+    }
+    .ring:nth-child(4) {
+      -webkit-transform: translateZ(-6.23602em) scale(0.55557);
+      transform: translateZ(-6.23602em) scale(0.55557);
+    }
+    .ring:nth-child(4):before {
+      -webkit-animation: ring 2s -0.375s linear infinite;
+      animation: ring 2s -0.375s linear infinite;
+    }
+    .ring:nth-child(5) {
+      -webkit-transform: translateZ(-5.3033em) scale(0.70711);
+      transform: translateZ(-5.3033em) scale(0.70711);
+    }
+    .ring:nth-child(5):before {
+      -webkit-animation: ring 2s -0.5s linear infinite;
+      animation: ring 2s -0.5s linear infinite;
+    }
+    .ring:nth-child(6) {
+      -webkit-transform: translateZ(-4.16678em) scale(0.83147);
+      transform: translateZ(-4.16678em) scale(0.83147);
+    }
+    .ring:nth-child(6):before {
+      -webkit-animation: ring 2s -0.625s linear infinite;
+      animation: ring 2s -0.625s linear infinite;
+    }
+    .ring:nth-child(7) {
+      -webkit-transform: translateZ(-2.87013em) scale(0.92388);
+      transform: translateZ(-2.87013em) scale(0.92388);
+    }
+    .ring:nth-child(7):before {
+      -webkit-animation: ring 2s -0.75s linear infinite;
+      animation: ring 2s -0.75s linear infinite;
+    }
+    .ring:nth-child(8) {
+      -webkit-transform: translateZ(-1.46318em) scale(0.98079);
+      transform: translateZ(-1.46318em) scale(0.98079);
+    }
+    .ring:nth-child(8):before {
+      -webkit-animation: ring 2s -0.875s linear infinite;
+      animation: ring 2s -0.875s linear infinite;
+    }
+    .ring:nth-child(9) {
+      -webkit-transform: translateZ(0em) scale(1);
+      transform: translateZ(0em) scale(1);
+    }
+    .ring:nth-child(9):before {
+      -webkit-animation: ring 2s -1s linear infinite;
+      animation: ring 2s -1s linear infinite;
+    }
+    .ring:nth-child(10) {
+      -webkit-transform: translateZ(1.46318em) scale(0.98079);
+      transform: translateZ(1.46318em) scale(0.98079);
+    }
+    .ring:nth-child(10):before {
+      -webkit-animation: ring 2s -1.125s linear infinite;
+      animation: ring 2s -1.125s linear infinite;
+    }
+    .ring:nth-child(11) {
+      -webkit-transform: translateZ(2.87013em) scale(0.92388);
+      transform: translateZ(2.87013em) scale(0.92388);
+    }
+    .ring:nth-child(11):before {
+      -webkit-animation: ring 2s -1.25s linear infinite;
+      animation: ring 2s -1.25s linear infinite;
+    }
+    .ring:nth-child(12) {
+      -webkit-transform: translateZ(4.16678em) scale(0.83147);
+      transform: translateZ(4.16678em) scale(0.83147);
+    }
+    .ring:nth-child(12):before {
+      -webkit-animation: ring 2s -1.375s linear infinite;
+      animation: ring 2s -1.375s linear infinite;
+    }
+    .ring:nth-child(13) {
+      -webkit-transform: translateZ(5.3033em) scale(0.70711);
+      transform: translateZ(5.3033em) scale(0.70711);
+    }
+    .ring:nth-child(13):before {
+      -webkit-animation: ring 2s -1.5s linear infinite;
+      animation: ring 2s -1.5s linear infinite;
+    }
+    .ring:nth-child(14) {
+      -webkit-transform: translateZ(6.23602em) scale(0.55557);
+      transform: translateZ(6.23602em) scale(0.55557);
+    }
+    .ring:nth-child(14):before {
+      -webkit-animation: ring 2s -1.625s linear infinite;
+      animation: ring 2s -1.625s linear infinite;
+    }
+    .ring:nth-child(15) {
+      -webkit-transform: translateZ(6.9291em) scale(0.38268);
+      transform: translateZ(6.9291em) scale(0.38268);
+    }
+    .ring:nth-child(15):before {
+      -webkit-animation: ring 2s -1.75s linear infinite;
+      animation: ring 2s -1.75s linear infinite;
+    }
+    .ring:nth-child(16) {
+      -webkit-transform: translateZ(7.35589em) scale(0.19509);
+      transform: translateZ(7.35589em) scale(0.19509);
+    }
+    .ring:nth-child(16):before {
+      -webkit-animation: ring 2s -1.875s linear infinite;
+      animation: ring 2s -1.875s linear infinite;
+    }
+    @-webkit-keyframes ring {
+      100% {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+      }
+    }
+    @keyframes ring {
+      100% {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+      }
+    }
 
 
 
-  <script src="scripts/plugins/THREE/Three.js"></script>
-  <script src="scripts/plugins/THREE/Projector.js"></script>
-  <script src="scripts/plugins/THREE/Dectector.js"></script>
-  <script src="scripts/plugins/THREE/AssimpJSONLoader.js"></script>
-  <script src="scripts/plugins/THREE/CanvasRenderer.js"></script>
-  <script src="scripts/plugins/THREE/stats.min.js"></script>
-  <script src="scripts/plugins/physijs/ammo.js"></script>
-  <script src="scripts/plugins/physijs/physi.js"></script>
-  <!--<script src="scripts/plugins/physijs/physijs_worker.js"></script>-->
-  <!--<script src="scripts/plugins/THREE/extra.js"></script>-->
-  <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>-->
+  </style>
+</head>
+<!--<audio autoplay="autoplay" loop>-->
+<!--<source src="images/bgmusic2.mp3" type="audio/mp3">-->
+<!--</audio>-->
+<body ng-app="BczUiApp">
+<!--<div class="landingLoader" id="landingLoader">-->
+<!--<div class='sphere'>-->
+<!--<div class='ring'></div>-->
+<!--<div class='ring'></div>-->
+<!--<div class='ring'></div>-->
+<!--<div class='ring'></div>-->
+<!--<div class='ring'></div>-->
+<!--<div class='ring'></div>-->
+<!--<div class='ring'></div>-->
+<!--<div class='ring'></div>-->
+<!--<div class='ring'></div>-->
+<!--<div class='ring'></div>-->
+<!--<div class='ring'></div>-->
+<!--<div class='ring'></div>-->
+<!--<div class='ring'></div>-->
+<!--<div class='ring'></div>-->
+<!--<div class='ring'></div>-->
+<!--<div class='ring'></div>-->
+<!--</div>-->
+<!--</div>-->
+<title>Rotavio Labs</title>
+<!--[if lte IE 8]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
-  </body>
+<div class="header" id="header" ng-controller="HeaderCtrl as vm"
+     ng-class="{
+               'homeHeader': vm.state.current.name == 'whoweare',
+               'exploreHeader': vm.state.current.name == 'exploreServo',
+               'exploreHeader': vm.state.current.name == 'exploreSoftware',
+               'exploreHeader': vm.state.current.name == 'explore',
+            }">
+  <div class="headerBG"></div>
+  <div class="logo" ui-sref="home"><img src="images/logo/logo.png"></div>
+  <ul>
+    <li ng-class="{'active': vm.state.current.name == 'home'}" ui-sref="home">ROTAVIO</li>
+    <li ng-class="{'active': vm.state.current.name == 'explore'}" ui-sref="explore">EXPLORE</li>
+    <li ng-class="{'active': vm.state.current.name == 'whoweare'}" ui-sref="whoweare">WHO WE ARE</li>
+    <!--<li>REACH US</li>-->
+  </ul>
+</div>
+
+<!-- Add your site or application content here -->
+<div class="viewPort" ui-view></div>
+
+<div id="backgroundAnim" class="backgroundAnim"></div>
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<!-- <script src="bower_components/jquery/dist/scrollspeed.js"></script> -->
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/angularjs-slider/dist/rzslider.js"></script>
+<script src="bower_components/angular-svg-round-progressbar/build/roundProgress.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<!-- <script src="bower_components/angular-dp/angular-dp.js"></script> -->
+<script src="scripts/plugins/satellizer/satellizer.js"></script>
+<script src="scripts/plugins/ToxicBlue/ToxicBlue.js"></script>
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/services/tokenHandler.js"></script>
+<script src="scripts/services/feedFactory.js"></script>
+<script src="scripts/services/loginService.js"></script>
+<script src="scripts/controllers/whoweare.js"></script>
+<script src="scripts/controllers/demo.js"></script>
+<script src="scripts/controllers/explore.js"></script>
+<script src="scripts/services/paraService.js"></script>
+<!-- endbuild -->
+
+
+
+<script src="scripts/plugins/THREE/Three.js"></script>
+<script src="scripts/plugins/THREE/Projector.js"></script>
+<script src="scripts/plugins/THREE/Dectector.js"></script>
+<script src="scripts/plugins/THREE/AssimpJSONLoader.js"></script>
+<script src="scripts/plugins/THREE/CanvasRenderer.js"></script>
+<script src="scripts/plugins/THREE/stats.min.js"></script>
+<script src="scripts/plugins/physijs/ammo.js"></script>
+<script src="scripts/plugins/physijs/physi.js"></script>
+<!--<script src="scripts/plugins/physijs/physijs_worker.js"></script>-->
+<!--<script src="scripts/plugins/THREE/extra.js"></script>-->
+<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>-->
+
+</body>
 </html>
