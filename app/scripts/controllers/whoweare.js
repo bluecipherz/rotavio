@@ -122,11 +122,11 @@ angular.module('BczUiApp')
             },
             {
                 id: 9, name: 'Prof C. Venkatesan', img: 'images/wwa/team/venkatesan.jpg',
-                domain: 'Advisor, Helicoper Technology',
+                domain: 'Advisor, Helicopter Technology',
                 details: [
                     'Former Head, Dept of Aerospace Engineering, IIT Kanpur',
                     'Fellow, Indian National Academy of Engineering',
-                    'Expertise in Helicoper Technology & Design'
+                    'Expertise in Helicopter Technology & Design'
                 ]
             }
         ];
