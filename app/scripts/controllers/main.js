@@ -12,9 +12,6 @@ angular.module('BczUiApp')
     .controller('HeaderCtrl', function ($state) {
         var vm = this;
         vm.state = $state;
-        setTimeout(function () {
-            $('.landingLoader').fadeOut(1000);
-        },3000);
 
 
     })
@@ -27,7 +24,7 @@ angular.module('BczUiApp')
             if ( video.readyState === 4 ) {
                 // it's loaded
                 paraService.pageLoaded();
-                console.log('im loaded');
+                clearInterval(videoInter);
             }
         })
 

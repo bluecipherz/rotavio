@@ -28,7 +28,7 @@
       right:0;
       bottom: 0;
       background: #111;
-      z-index: 1000000;
+      z-index: 99000000;
     }
 
     ::-webkit-scrollbar              { width: 12px; background: #111; }
@@ -49,184 +49,114 @@
 
 
 
-    *, *:before, *:after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    *:before, *:after {
-      content: "";
+    /**, *:before, *:after {*/
+      /*margin: 0;*/
+      /*padding: 0;*/
+      /*box-sizing: border-box;*/
+    /*}*/
+    /**:before, *:after {*/
+      /*content: "";*/
+    /*}*/
+
+
+    .cssload-container{
+      position:relative;
+      height: 100%;
     }
 
-    .sphere {
-      -webkit-transform: rotateY(45deg);
-      transform: rotateY(45deg);
-    }
-    .sphere, .sphere *, .sphere *:before, .sphere *:after {
+    .cssload-whirlpool,
+    .cssload-whirlpool::before,
+    .cssload-whirlpool::after {
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
+      top: 50%;
+      left: 50%;
+      border: 2px solid rgb(22,26,26);
+      border-left-color: rgb(245,14,14);
+      border-radius: 2373px;
+      -o-border-radius: 2373px;
+      -ms-border-radius: 2373px;
+      -webkit-border-radius: 2373px;
+      -moz-border-radius: 2373px;
+    }
+
+    .cssload-whirlpool {
+      margin: -59px 0 0 -59px;
+      height: 119px;
+      width: 119px;
+      animation: cssload-rotate 2200ms linear infinite;
+      -o-animation: cssload-rotate 2200ms linear infinite;
+      -ms-animation: cssload-rotate 2200ms linear infinite;
+      -webkit-animation: cssload-rotate 2200ms linear infinite;
+      -moz-animation: cssload-rotate 2200ms linear infinite;
+    }
+
+    .cssload-whirlpool::before {
+      content: "";
+      margin: -55px 0 0 -55px;
+      height: 105px;
+      width: 105px;
+      animation: cssload-rotate 2200ms linear infinite;
+      -o-animation: cssload-rotate 2200ms linear infinite;
+      -ms-animation: cssload-rotate 2200ms linear infinite;
+      -webkit-animation: cssload-rotate 2200ms linear infinite;
+      -moz-animation: cssload-rotate 2200ms linear infinite;
+    }
+
+    .cssload-whirlpool::after {
+      content: "";
+      margin: -69px 0 0 -69px;
+      height: 133px;
+      width: 133px;
+      animation: cssload-rotate 4400ms linear infinite;
+      -o-animation: cssload-rotate 4400ms linear infinite;
+      -ms-animation: cssload-rotate 4400ms linear infinite;
+      -webkit-animation: cssload-rotate 4400ms linear infinite;
+      -moz-animation: cssload-rotate 4400ms linear infinite;
+    }
+
+
+
+    @keyframes cssload-rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @-o-keyframes cssload-rotate {
+      100% {
+        -o-transform: rotate(360deg);
+      }
+    }
+
+    @-ms-keyframes cssload-rotate {
+      100% {
+        -ms-transform: rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes cssload-rotate {
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @-moz-keyframes cssload-rotate {
+      100% {
+        -moz-transform: rotate(360deg);
+      }
+    }
+    .ll-text{
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      margin-top: 90px;
       left: 0;
-      margin: auto;
-      -webkit-transform-style: preserve-3d;
-      transform-style: preserve-3d;
-    }
+      font-size: 50px;
+      color: #555;
+      font-family: mohave;
+      text-align: center;
 
-    .ring {
-      width: 15em;
-      height: 15em;
-      border-radius: 50%;
     }
-    .ring:before {
-      border-width: 3px;
-      border-style: solid;
-      /*background: #80baff;*/
-      border-color: #3799ff #3b86ff transparent transparent;
-      border-radius: 50%;
-    }
-    .ring:nth-child(1) {
-      -webkit-transform: translateZ(-7.5em) scale(0);
-      transform: translateZ(-7.5em) scale(0);
-    }
-    .ring:nth-child(1):before {
-      -webkit-animation: ring 2s -0s linear infinite;
-      animation: ring 2s -0s linear infinite;
-    }
-    .ring:nth-child(2) {
-      -webkit-transform: translateZ(-7.35589em) scale(0.19509);
-      transform: translateZ(-7.35589em) scale(0.19509);
-    }
-    .ring:nth-child(2):before {
-      -webkit-animation: ring 2s -0.125s linear infinite;
-      animation: ring 2s -0.125s linear infinite;
-    }
-    .ring:nth-child(3) {
-      -webkit-transform: translateZ(-6.9291em) scale(0.38268);
-      transform: translateZ(-6.9291em) scale(0.38268);
-    }
-    .ring:nth-child(3):before {
-      -webkit-animation: ring 2s -0.25s linear infinite;
-      animation: ring 2s -0.25s linear infinite;
-    }
-    .ring:nth-child(4) {
-      -webkit-transform: translateZ(-6.23602em) scale(0.55557);
-      transform: translateZ(-6.23602em) scale(0.55557);
-    }
-    .ring:nth-child(4):before {
-      -webkit-animation: ring 2s -0.375s linear infinite;
-      animation: ring 2s -0.375s linear infinite;
-    }
-    .ring:nth-child(5) {
-      -webkit-transform: translateZ(-5.3033em) scale(0.70711);
-      transform: translateZ(-5.3033em) scale(0.70711);
-    }
-    .ring:nth-child(5):before {
-      -webkit-animation: ring 2s -0.5s linear infinite;
-      animation: ring 2s -0.5s linear infinite;
-    }
-    .ring:nth-child(6) {
-      -webkit-transform: translateZ(-4.16678em) scale(0.83147);
-      transform: translateZ(-4.16678em) scale(0.83147);
-    }
-    .ring:nth-child(6):before {
-      -webkit-animation: ring 2s -0.625s linear infinite;
-      animation: ring 2s -0.625s linear infinite;
-    }
-    .ring:nth-child(7) {
-      -webkit-transform: translateZ(-2.87013em) scale(0.92388);
-      transform: translateZ(-2.87013em) scale(0.92388);
-    }
-    .ring:nth-child(7):before {
-      -webkit-animation: ring 2s -0.75s linear infinite;
-      animation: ring 2s -0.75s linear infinite;
-    }
-    .ring:nth-child(8) {
-      -webkit-transform: translateZ(-1.46318em) scale(0.98079);
-      transform: translateZ(-1.46318em) scale(0.98079);
-    }
-    .ring:nth-child(8):before {
-      -webkit-animation: ring 2s -0.875s linear infinite;
-      animation: ring 2s -0.875s linear infinite;
-    }
-    .ring:nth-child(9) {
-      -webkit-transform: translateZ(0em) scale(1);
-      transform: translateZ(0em) scale(1);
-    }
-    .ring:nth-child(9):before {
-      -webkit-animation: ring 2s -1s linear infinite;
-      animation: ring 2s -1s linear infinite;
-    }
-    .ring:nth-child(10) {
-      -webkit-transform: translateZ(1.46318em) scale(0.98079);
-      transform: translateZ(1.46318em) scale(0.98079);
-    }
-    .ring:nth-child(10):before {
-      -webkit-animation: ring 2s -1.125s linear infinite;
-      animation: ring 2s -1.125s linear infinite;
-    }
-    .ring:nth-child(11) {
-      -webkit-transform: translateZ(2.87013em) scale(0.92388);
-      transform: translateZ(2.87013em) scale(0.92388);
-    }
-    .ring:nth-child(11):before {
-      -webkit-animation: ring 2s -1.25s linear infinite;
-      animation: ring 2s -1.25s linear infinite;
-    }
-    .ring:nth-child(12) {
-      -webkit-transform: translateZ(4.16678em) scale(0.83147);
-      transform: translateZ(4.16678em) scale(0.83147);
-    }
-    .ring:nth-child(12):before {
-      -webkit-animation: ring 2s -1.375s linear infinite;
-      animation: ring 2s -1.375s linear infinite;
-    }
-    .ring:nth-child(13) {
-      -webkit-transform: translateZ(5.3033em) scale(0.70711);
-      transform: translateZ(5.3033em) scale(0.70711);
-    }
-    .ring:nth-child(13):before {
-      -webkit-animation: ring 2s -1.5s linear infinite;
-      animation: ring 2s -1.5s linear infinite;
-    }
-    .ring:nth-child(14) {
-      -webkit-transform: translateZ(6.23602em) scale(0.55557);
-      transform: translateZ(6.23602em) scale(0.55557);
-    }
-    .ring:nth-child(14):before {
-      -webkit-animation: ring 2s -1.625s linear infinite;
-      animation: ring 2s -1.625s linear infinite;
-    }
-    .ring:nth-child(15) {
-      -webkit-transform: translateZ(6.9291em) scale(0.38268);
-      transform: translateZ(6.9291em) scale(0.38268);
-    }
-    .ring:nth-child(15):before {
-      -webkit-animation: ring 2s -1.75s linear infinite;
-      animation: ring 2s -1.75s linear infinite;
-    }
-    .ring:nth-child(16) {
-      -webkit-transform: translateZ(7.35589em) scale(0.19509);
-      transform: translateZ(7.35589em) scale(0.19509);
-    }
-    .ring:nth-child(16):before {
-      -webkit-animation: ring 2s -1.875s linear infinite;
-      animation: ring 2s -1.875s linear infinite;
-    }
-    @-webkit-keyframes ring {
-      100% {
-        -webkit-transform: rotateZ(360deg);
-        transform: rotateZ(360deg);
-      }
-    }
-    @keyframes ring {
-      100% {
-        -webkit-transform: rotateZ(360deg);
-        transform: rotateZ(360deg);
-      }
-    }
-
-
 
   </style>
 </head>
@@ -234,26 +164,12 @@
 <!--<source src="images/bgmusic2.mp3" type="audio/mp3">-->
 <!--</audio>-->
 <body ng-app="BczUiApp">
-<!--<div class="landingLoader" id="landingLoader">-->
-<!--<div class='sphere'>-->
-<!--<div class='ring'></div>-->
-<!--<div class='ring'></div>-->
-<!--<div class='ring'></div>-->
-<!--<div class='ring'></div>-->
-<!--<div class='ring'></div>-->
-<!--<div class='ring'></div>-->
-<!--<div class='ring'></div>-->
-<!--<div class='ring'></div>-->
-<!--<div class='ring'></div>-->
-<!--<div class='ring'></div>-->
-<!--<div class='ring'></div>-->
-<!--<div class='ring'></div>-->
-<!--<div class='ring'></div>-->
-<!--<div class='ring'></div>-->
-<!--<div class='ring'></div>-->
-<!--<div class='ring'></div>-->
-<!--</div>-->
-<!--</div>-->
+<div class="landingLoader" id="landingLoader">
+  <div class="ll-text">ROTAVIO LABS</div>
+  <div class="cssload-container">
+    <div class="cssload-whirlpool"></div>
+  </div>
+</div>
 <title>Rotavio Labs</title>
 <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>

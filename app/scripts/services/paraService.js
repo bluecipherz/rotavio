@@ -70,7 +70,9 @@ angular.module('BczUiApp')
       }
 
       vm.pageLoaded = function () {
-          $('#landingLoader').fadeOut(1000);
+          setTimeout(function () {
+              $('.landingLoader').fadeOut(1000);
+          },3000);
       }
 
     });

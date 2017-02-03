@@ -4,6 +4,7 @@ angular.module('BczUiApp')
     .controller('ExploreCtrl', function (loginService, paraService, $state) {
         $(window).scrollTop(1);
         var vm = this;
+        paraService.pageLoaded();
 
         if(!paraService.selectedTab) {
             vm.selectedTab = { id:0, camId : 0 };

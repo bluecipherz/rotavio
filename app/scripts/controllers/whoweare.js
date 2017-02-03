@@ -4,6 +4,7 @@ angular.module('BczUiApp')
     .controller('WhoweareCtrl', function (loginService, paraService) {
 
         var vm = this;
+        paraService.pageLoaded();
 
         function tickerMe(params) {
             var tm = this;
