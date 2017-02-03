@@ -53,10 +53,10 @@ angular.module('BczUiApp')
                 lookAt: {x:0, y:0, z:0},
                 position:[
                     {x: 4, y: 4, z: 6},
-                    {x: 8, y: 1, z: 8},
                     {x: 2.1, y: 0.8, z: 3},
+                    {x: 8, y: 1, z: 8},
                     // {x: 5, y: 5, z: 3},
-                    {x: 4, y: 11, z: 4}
+                    {x: 4, y: 9, z: 4}
                 ]
             },
             {
@@ -64,10 +64,10 @@ angular.module('BczUiApp')
                 zoom:0.5,
                 position:[
                     {x: 4, y: 4, z: 6},
+                    {x: 3.5, y: 0.8, z: 3.5},
                     {x: 8, y: 1, z: 8},
                     {x: 4, y: 11, z: 4},
-                    // {x: 5, y: 5, z: 3},
-                    {x: 3.5, y: 0.8, z: 3.5}
+                    // {x: 5, y: 5, z: 3}
                 ]
             },
             {
