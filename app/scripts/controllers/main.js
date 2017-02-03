@@ -26,7 +26,7 @@ angular.module('BczUiApp')
                 paraService.pageLoaded();
                 clearInterval(videoInter);
             }
-        })
+        },500)
 
         var windowHeight = $(window).height();
         // var header = $('#header');
