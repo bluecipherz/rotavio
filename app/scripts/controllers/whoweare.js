@@ -80,7 +80,8 @@ angular.module('BczUiApp')
                 domain: 'Senior Engineer, Simulation & Analysis',
                 details: [
                     'B.Tech, Civil Engineering, JNTU Kakinada (2010)',
-                    'M.Tech, Aerospace Engineering, IIT Kanpur (2012)'
+                    'M.Tech, Aerospace Engineering, IIT Kanpur (2012)',
+                    'Expertise in Rotar Dynamincs Simulations and Analysis'
                 ]
             },
             {
