@@ -673,7 +673,7 @@
   left: 0;
   height: 100vh;
   width: 100vw;
-  font-size: 70%;
+  font-size: 60%;
   line-height: 170vh; }
 
 .hm-b1 {
@@ -1134,6 +1134,18 @@
     -o-transition: 1s;
     transition: 1s; }
 
+.ell-message {
+  position: fixed;
+  bottom: 0;
+  left: 0%;
+  right: 45%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 20px;
+  font-family: g-m;
+  color: rgba(0, 0, 0, 0.3); }
+
 .exploreLanding {
   position: relative;
   float: left;
@@ -1145,6 +1157,22 @@
     bottom: 0;
     left: 0;
     z-index: 1; }
+  .exploreLanding .el-left.horizontal {
+    position: absolute;
+    left: 5%;
+    right: 50%;
+    width: auto;
+    padding-top: 80px;
+    bottom: auto !important;
+    height: auto !important; }
+    .exploreLanding .el-left.horizontal .ell-item {
+      width: 30%;
+      margin: 0 1.65%;
+      float: left;
+      display: block; }
+    .exploreLanding .el-left.horizontal .ell-item.active {
+      background: rgba(255, 255, 255, 0.5);
+      border-color: rgba(255, 255, 255, 0.4); }
   .exploreLanding .el-right,
   .exploreLanding .el-left {
     position: absolute;
@@ -1160,22 +1188,6 @@
     .exploreLanding .el-left .ell-item.active {
       background: #fff;
       color: #000; }
-    .exploreLanding .el-right .ell-item:before,
-    .exploreLanding .el-right .ell-item:after,
-    .exploreLanding .el-left .ell-item:before,
-    .exploreLanding .el-left .ell-item:after {
-      content: '';
-      float: left;
-      position: absolute;
-      left: -30px;
-      width: 10px;
-      top: 24px;
-      height: 2px;
-      background: white;
-      -webkit-transition: 0.5s;
-      -moz-transition: 0.5s;
-      -o-transition: 0.5s;
-      transition: 0.5s; }
     .exploreLanding .el-right .ell-item:hover:after,
     .exploreLanding .el-left .ell-item:hover:after {
       width: 30px; }
@@ -1220,7 +1232,8 @@
       /* IE10+ */
       -o-box-sizing: border-box;
       box-sizing: border-box;
-      border: 1px solid white; }
+      border: 1px solid white;
+      border-color: rgba(255, 255, 255, 0.1); }
   .exploreLanding .el-right:before,
   .exploreLanding .el-right:after {
     content: '';
@@ -1284,7 +1297,7 @@
     padding-left: 80px;
     padding-right: 80px;
     padding-top: 80px;
-    padding-bottom: 120px; }
+    padding-bottom: 0px; }
     .exploreLanding .el-right .elr-head {
       position: relative;
       width: 100%;
@@ -1295,6 +1308,7 @@
       position: relative;
       float: left;
       line-height: 1.56;
+      margin-bottom: 130px;
       font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif; }
       .exploreLanding .el-right .elr-cont table {
         width: 100%;
