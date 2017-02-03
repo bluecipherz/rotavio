@@ -843,6 +843,10 @@
   text-align: justify !important;
   text-justify: inter-word !important; }
 
+.hm1-ex-btn.-background {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: transparent; }
+
 .hm1-ex-btn:hover {
   background: #fff;
   color: #000;
