@@ -9,3 +9,6 @@ build/
 dist/
 
 Graphics/
+/.tmp/
+.DS_Store
+app/.DS_Store
