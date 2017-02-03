@@ -430,5 +430,16 @@ angular.module('BczUiApp')
 
         initThree();
 
+        window.addEventListener( 'resize', onWindowResize, false );
+
+        function onWindowResize(){
+
+            if(camera) camera.aspect = (window.innerWidth * 0.55) / window.innerHeight;
+            if(camera) camera.updateProjectionMatrix();
+
+            if(renderer) renderer.setSize((window.innerWidth * 0.55), window.innerHeight );
+
+        }
+
 
     })

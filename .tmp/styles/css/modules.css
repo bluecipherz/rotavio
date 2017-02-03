@@ -60,7 +60,9 @@
     font-size: 150%;
     width: 72%;
     line-height: 140%;
-    margin-top: 50px; }
+    margin-top: 50px;
+    text-align: justify !important;
+    text-justify: inter-word !important; }
 
 .wwa-itemSet {
   position: relative;
@@ -70,9 +72,11 @@
   .wwa-itemSet .wwa-item:hover {
     cursor: pointer; }
     .wwa-itemSet .wwa-item:hover .wwai-hover-cont {
-      transform: scale(1); }
+      -webkit-transform: scale(1);
+              transform: scale(1); }
     .wwa-itemSet .wwa-item:hover .wwai-img {
-      transform: scale(0.9); }
+      -webkit-transform: scale(0.9);
+              transform: scale(0.9); }
   .wwa-itemSet .wwa-item.active {
     z-index: 1000; }
     .wwa-itemSet .wwa-item.active .wwa-item-background {
@@ -98,7 +102,8 @@
         .wwa-itemSet .wwa-item.active .wwa-item-background .wwa-item-cont .wwai-img {
           margin-left: 50%;
           margin-top: 80px;
-          transform: scale(0.9) translateX(-7.73332vw); }
+          -webkit-transform: scale(0.9) translateX(-7.73332vw);
+                  transform: scale(0.9) translateX(-7.73332vw); }
         .wwa-itemSet .wwa-item.active .wwa-item-background .wwa-item-cont .wwai-hover-cont {
           z-index: 10;
           display: none; }
@@ -153,6 +158,7 @@
       height: 15.46664vw;
       background: #eee;
       float: left;
+      transition: -webkit-transform 0.4s;
       transition: transform 0.4s;
       border-radius: 100%;
       position: relative;
@@ -168,7 +174,8 @@
       left: 0;
       z-index: -1;
       transition: 0.4s;
-      transform: scale(0.8); }
+      -webkit-transform: scale(0.8);
+              transform: scale(0.8); }
     .wwa-itemSet .wwa-item .wwai-hover2,
     .wwa-itemSet .wwa-item .wwai-hover {
       position: absolute;
@@ -187,24 +194,46 @@
       border: 8px solid #f61d1e;
       border-bottom-color: transparent;
       border-top-color: transparent;
-      transform: scale(1.1);
-      animation: itemHover 8s linear infinite; }
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1);
+      -webkit-animation: itemHover 8s linear infinite;
+              animation: itemHover 8s linear infinite; }
     .wwa-itemSet .wwa-item .wwai-hover2 {
       border: 2px solid #c1bdbd;
       border-left-color: transparent;
       border-right-color: transparent;
-      animation: itemHover2 3.5s linear infinite; }
+      -webkit-animation: itemHover2 3.5s linear infinite;
+              animation: itemHover2 3.5s linear infinite; }
+
+@-webkit-keyframes itemHover {
+  0% {
+    -webkit-transform: scale(1.05) rotate(0deg);
+            transform: scale(1.05) rotate(0deg); }
+  100% {
+    -webkit-transform: scale(1.05) rotate(360deg);
+            transform: scale(1.05) rotate(360deg); } }
 
 @keyframes itemHover {
   0% {
-    transform: scale(1.05) rotate(0deg); }
+    -webkit-transform: scale(1.05) rotate(0deg);
+            transform: scale(1.05) rotate(0deg); }
   100% {
-    transform: scale(1.05) rotate(360deg); } }
+    -webkit-transform: scale(1.05) rotate(360deg);
+            transform: scale(1.05) rotate(360deg); } }
+@-webkit-keyframes itemHover2 {
+  0% {
+    -webkit-transform: scale(1.03) rotate(0deg);
+            transform: scale(1.03) rotate(0deg); }
+  100% {
+    -webkit-transform: scale(1.03) rotate(360deg);
+            transform: scale(1.03) rotate(360deg); } }
 @keyframes itemHover2 {
   0% {
-    transform: scale(1.03) rotate(0deg); }
+    -webkit-transform: scale(1.03) rotate(0deg);
+            transform: scale(1.03) rotate(0deg); }
   100% {
-    transform: scale(1.03) rotate(360deg); } }
+    -webkit-transform: scale(1.03) rotate(360deg);
+            transform: scale(1.03) rotate(360deg); } }
 .wwai-data {
   display: none;
   width: 100%;
@@ -320,7 +349,8 @@
       left: 60%;
       top: 25%;
       border: 2px dashed rgba(255, 255, 255, 0.3);
-      transform: rotate(45deg); }
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg); }
   .hm-landing .hmlbox-top {
     top: -2px;
     left: -1px;
@@ -336,7 +366,8 @@
       left: 25%;
       top: 60%;
       border: 2px dashed rgba(255, 255, 255, 0.3);
-      transform: rotate(45deg); }
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg); }
     .hm-landing .hmlbox-top .hb-top2 {
       top: 0;
       border: 0;
@@ -357,7 +388,8 @@
       top: 25%;
       background: #918b87;
       border: 2px dashed rgba(255, 255, 255, 0.3);
-      transform: rotate(45deg); }
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg); }
     .hm-landing .hmlbox-right .hb-right2 {
       left: -10%;
       background: #5b5754;
@@ -384,7 +416,8 @@
       left: 25%;
       bottom: 60%;
       border: 2px dashed rgba(255, 255, 255, 0.3);
-      transform: rotate(45deg); }
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg); }
     .hm-landing .hmlbox-bottom .hb-bottom2 {
       border: 0;
       background: #5b5754;
@@ -557,13 +590,22 @@
   background: #343434;
   z-index: 40;
   height: 110vh !important; }
+  .hm-title .hm-video-outer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #343434;
+    z-index: -1; }
   .hm-title video {
+    opacity: 0.5;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    right: 0%;
-    z-index: -1; }
+    right: 0%; }
 
 .hm-title:after {
   position: absolute;
@@ -631,21 +673,24 @@
     z-index: 8;
     opacity: 0.15; }
     .cloudSet .cloud-1 img {
-      transform: rotate(-5deg); }
+      -webkit-transform: rotate(-5deg);
+              transform: rotate(-5deg); }
   .cloudSet .cloud-2 {
     left: 18vw;
     top: -22vw;
     width: 66vw;
     z-index: 9; }
     .cloudSet .cloud-2 img {
-      transform: rotate(-90deg); }
+      -webkit-transform: rotate(-90deg);
+              transform: rotate(-90deg); }
   .cloudSet .cloud-3 {
     right: -5vw;
     top: -13vw;
     left: auto;
     z-index: 10; }
     .cloudSet .cloud-3 img {
-      transform: rotate(-50deg);
+      -webkit-transform: rotate(-50deg);
+              transform: rotate(-50deg);
       opacity: 0.3; }
   .cloudSet .cloud-4 {
     width: 90vw;
@@ -670,7 +715,8 @@
     top: 80vh;
     right: 100px; }
     .cloudSet .hm1-drone .hm1-dbody {
-      transform: rotate(65deg);
+      -webkit-transform: rotate(65deg);
+              transform: rotate(65deg);
       width: 165px;
       height: auto; }
     .cloudSet .hm1-drone .hm1-dleaf {
@@ -697,17 +743,18 @@
       bottom: -10px;
       right: -154px; }
 
-.hmt1-cont.-right,
 .hmt1-head1.-right,
 .hmt1-head2.-right {
   width: 51% !important;
   text-align: left !important;
   padding-left: 0 !important;
   margin-right: 0 !important; }
-  .hmt1-cont.-right *,
   .hmt1-head1.-right *,
   .hmt1-head2.-right * {
     text-align: left !important; }
+
+.hmt1-cont.-right {
+  margin-right: 15% !important; }
 
 .hmt1-cont,
 .hmt1-head1,
@@ -730,11 +777,13 @@
   line-height: 160%;
   padding: 0;
   margin-left: 80px;
-  width: auto;
+  width: 36%;
   font-family: g-l;
   margin-top: 70px;
   clear: both;
-  position: relative; }
+  position: relative;
+  text-align: justify !important;
+  text-justify: inter-word !important; }
 
 .hm1-ex-btn:hover {
   background: #fff;
@@ -764,6 +813,9 @@
   font-size: 150%;
   font-family: g-m;
   color: #fff; }
+
+.hmt1-cont.-center {
+  text-align: center !important; }
 
 .hmt1-svgBg {
   position: absolute;

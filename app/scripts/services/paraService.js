@@ -69,4 +69,8 @@ angular.module('BczUiApp')
         // }
       }
 
+      vm.pageLoaded = function () {
+          $('#landingLoader').fadeOut(1000);
+      }
+
     });

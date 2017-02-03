@@ -45,7 +45,7 @@ angular.module('BczUiApp')
 
         }
 
-        paraService.addPara('whoweare', 'wwa-cont', {id: '#wwa-cont', translate: -0.2})
+        // paraService.addPara('whoweare', 'wwa-cont', {id: '#wwa-cont', translate: -0.2})
         // paraService.addPara('whoweare', 'wwa-img', { id:'#wwa-img', translate : 0.2 })
         paraService.addPara('whoweare', 'wwa-head-set', {id: '#wwa-head-set', translate: -0.6})
 

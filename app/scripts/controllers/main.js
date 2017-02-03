@@ -21,6 +21,16 @@ angular.module('BczUiApp')
     .controller('MainCtrl', function (paraService) {
         $(window).scrollTop(1);
 
+        var video = document.getElementById("hm-video");
+
+        var videoInter = setInterval(function () {
+            if ( video.readyState === 4 ) {
+                // it's loaded
+                paraService.pageLoaded();
+                console.log('im loaded');
+            }
+        })
+
         var windowHeight = $(window).height();
         // var header = $('#header');
 

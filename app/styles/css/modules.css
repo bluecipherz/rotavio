@@ -60,7 +60,9 @@
     font-size: 150%;
     width: 72%;
     line-height: 140%;
-    margin-top: 50px; }
+    margin-top: 50px;
+    text-align: justify !important;
+    text-justify: inter-word !important; }
 
 .wwa-itemSet {
   position: relative;
@@ -630,13 +632,22 @@
   background: #343434;
   z-index: 40;
   height: 110vh !important; }
+  .hm-title .hm-video-outer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #343434;
+    z-index: -1; }
   .hm-title video {
+    opacity: 0.5;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    right: 0%;
-    z-index: -1; }
+    right: 0%; }
 
 .hm-title:after {
   position: absolute;
@@ -784,17 +795,18 @@
       bottom: -10px;
       right: -154px; }
 
-.hmt1-cont.-right,
 .hmt1-head1.-right,
 .hmt1-head2.-right {
   width: 51% !important;
   text-align: left !important;
   padding-left: 0 !important;
   margin-right: 0 !important; }
-  .hmt1-cont.-right *,
   .hmt1-head1.-right *,
   .hmt1-head2.-right * {
     text-align: left !important; }
+
+.hmt1-cont.-right {
+  margin-right: 15% !important; }
 
 .hmt1-cont,
 .hmt1-head1,
@@ -817,11 +829,13 @@
   line-height: 160%;
   padding: 0;
   margin-left: 80px;
-  width: auto;
+  width: 36%;
   font-family: g-l;
   margin-top: 70px;
   clear: both;
-  position: relative; }
+  position: relative;
+  text-align: justify !important;
+  text-justify: inter-word !important; }
 
 .hm1-ex-btn:hover {
   background: #fff;
@@ -856,6 +870,9 @@
   font-size: 150%;
   font-family: g-m;
   color: #fff; }
+
+.hmt1-cont.-center {
+  text-align: center !important; }
 
 .hmt1-svgBg {
   position: absolute;
