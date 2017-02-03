@@ -46,13 +46,6 @@ angular.module('BczUiApp')
         }
 
 
-        var camPos = [
-            {lookAt: {x:0, y:0, z:0}, position:{x: 4, y: 4, z: 6}},
-            {lookAt: {x:0, y:0, z:0}, position:{x: 8, y: 1, z: 8}},
-            {lookAt: {x:0, y:0, z:0}, position:{x: 4, y: 11, z: 4}},
-            {lookAt: {x:0, y:0, z:0}, position:{x: 5, y: 5, z: 3}},
-            {lookAt: {x:0, y:0, z:0}, position:{x: 2.1, y: 0.8, z: 3}},
-        ]
 
         var camLookAt = [
             {
@@ -176,19 +169,20 @@ angular.module('BczUiApp')
 
                 if(!paraService.droneBody){
                     if(!geoMesh) geoMesh = new THREE.Group();
+                    geoMesh.rotation.x = 0.03;
+                    geoMesh.position.x = 6;
+                    camLookAt[0].lookAt = geoMesh.position;
+                    var scale = 0.5;
+                    geoMesh.scale.set(scale,scale,scale);
+                    paraService.droneBody = geoMesh;
+
                     loader.load('models/drone1/bodynaked.js', function (geo, mat) {
                         geo.computeVertexNormals();
                         var gMesh = new THREE.Mesh(geo, material);
-                        gMesh.castShadow = true;
-                        // gMesh.receiveShadow = true;
                         gMesh.shadowCameraFar  = 10000;
+                        gMesh.castShadow = true;
                         geoMesh.add(gMesh);
-                        geoMesh.rotation.x = 0.03;
-                        geoMesh.position.x = 6;
-                        camLookAt[0].lookAt = geoMesh.position;
-                        var scale = 0.5;
-                        geoMesh.scale.set(scale,scale,scale);
-                        paraService.droneBody = geoMesh;
+                        // gMesh.receiveShadow = true;
                     },onProgress)
 
                     loader.load('models/drone1/mainprop.js', function (geo, mat) {
@@ -291,15 +285,16 @@ angular.module('BczUiApp')
 
             function onProgress(event) {
                 var progress = (event.loaded / event.total * 100);
+                var totalProgress = (progress * ((totalLoaded+1)/totalObjects));
                 setTimeout(function () {
-                    $('.expp-loaded').css({width: (progress * ((totalLoaded)/totalObjects))+'%'})
+                    $('.expp-loaded').css({width: totalProgress+'%'})
                 },100)
-                if(progress >= 100) checkIsLoaded();
+                if(progress >= 100) checkIsLoaded( totalProgress);
             }
 
-            function checkIsLoaded() {
+            function checkIsLoaded(totalProgress) {
                 totalLoaded++;
-                if(totalObjects == totalLoaded){
+                if(totalProgress >= 100){
                     setTimeout(function () {
                         world.add(geoMesh);
                         $('.exp-progress').fadeOut(500);

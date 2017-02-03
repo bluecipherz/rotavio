@@ -37,11 +37,9 @@ angular.module('BczUiApp')
         paraService.addPara('home', 'hm-header', { id:'#hmt1-svgBg',
             callback:function (element) {
                 if(element.progressPX - 200 - windowHeight > 0){
-                    console.log('homeHeader')
                     $('#header').removeClass('NormalHomeHeader');
                     $('#header').addClass('homeHeader');
                 }else{
-                    console.log('normalHeader')
                     $('#header').addClass('NormalHomeHeader');
                     $('#header').removeClass('homeHeader');
                 }
